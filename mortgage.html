@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מחשבון משכנתא - כלכלי וקל</title>
+    <title>מחשבון פרישה - כלכלי וקל</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -100,9 +100,7 @@
             border-radius: 10px;
             box-sizing: border-box;
             font-size: 1rem;
-            transition: border-color 0.3s;
         }
-        input:focus { border-color: var(--secondary); outline: none; }
 
         button {
             width: 100%;
@@ -125,7 +123,7 @@
             background: #eef7ff;
             border-radius: 12px;
             text-align: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             display: none;
             border: 1px solid var(--secondary);
         }
@@ -150,9 +148,8 @@
             border-radius: 8px;
             font-weight: bold;
             margin-top: 15px;
-            transition: background 0.3s;
         }
-        .affiliate-btn:hover { background: #219150; }
+
         .disclosure { font-size: 0.75rem; color: #999; margin-top: 15px; }
 
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
@@ -163,7 +160,7 @@
 <header>
     <a href="index.html" class="logo-container">
         <div class="logo-text">
-            <span class="logo-icon">🏠</span>
+            <span class="logo-icon">🏖️</span>
             כלכלי וקל
         </div>
     </a>
@@ -175,24 +172,34 @@
 </header>
 
 <div class="calc-container">
-    <h2 style="text-align: center; margin-bottom: 30px;">מחשבון משכנתא</h2>
+    <h2 style="text-align: center; margin-bottom: 30px;">מחשבון פרישה</h2>
     
     <div class="input-group">
-        <label>סכום ההלוואה (₪)</label>
-        <input type="number" id="loanAmount" placeholder="למשל: 1,000,000">
+        <label>גיל נוכחי</label>
+        <input type="number" id="currentAge" placeholder="למשל: 30">
     </div>
     
     <div class="input-group">
-        <label>תקופה (בשנים)</label>
-        <input type="number" id="years" placeholder="למשל: 30">
+        <label>גיל פרישה מתוכנן</label>
+        <input type="number" id="retirementAge" placeholder="למשל: 67">
     </div>
-    
+
     <div class="input-group">
-        <label>ריבית שנתית משוערת (%)</label>
-        <input type="number" id="interest" step="0.1" placeholder="למשל: 4.8">
+        <label>חיסכון נוכחי (₪)</label>
+        <input type="number" id="currentSavings" placeholder="סכום שכבר נצבר">
+    </div>
+
+    <div class="input-group">
+        <label>הפקדה חודשית לחיסכון (₪)</label>
+        <input type="number" id="monthlyDeposit" placeholder="כמה תפקידו בכל חודש">
+    </div>
+
+    <div class="input-group">
+        <label>תשואה שנתית צפויה (%)</label>
+        <input type="number" id="annualReturn" step="0.1" value="4">
     </div>
     
-    <button onclick="calculateMortgage()">חשב החזר חודשי</button>
+    <button onclick="calculateRetirement()">חשב הון בפרישה</button>
     
     <div id="result" class="result"></div>
 </div>
@@ -205,24 +212,43 @@
 </div>
 
 <footer>
-    © 2026 כלכלי וקל | המידע באתר אינו מהווה ייעוץ פיננסי מוסמך
+    © 2026 כלכלי וקל | המידע באתר אינו מהווה ייעוץ פנסיוני מוסמך
 </footer>
 
 <script>
-    function calculateMortgage() {
-        const p = parseFloat(document.getElementById('loanAmount').value);
-        const r = parseFloat(document.getElementById('interest').value) / 100 / 12;
-        const n = parseFloat(document.getElementById('years').value) * 12;
-
-        if (p && r && n) {
-            const x = Math.pow(1 + r, n);
-            const monthly = (p * x * r) / (x - 1);
-            const resDiv = document.getElementById('result');
-            resDiv.style.display = 'block';
-            resDiv.innerHTML = `ההחזר החודשי המשוער שלכם:<br><strong style="font-size: 1.6rem; color: var(--primary);">₪${Math.round(monthly).toLocaleString()}</strong>`;
-        } else {
-            alert("נא למלא את כל השדות בצורה תקינה");
+    function calculateRetirement() {
+        const currentAge = parseInt(document.getElementById('currentAge').value);
+        const retirementAge = parseInt(document.getElementById('retirementAge').value);
+        const p = parseFloat(document.getElementById('currentSavings').value) || 0;
+        const m = parseFloat(document.getElementById('monthlyDeposit').value) || 0;
+        const annualRate = parseFloat(document.getElementById('annualReturn').value) / 100;
+        
+        const years = retirementAge - currentAge;
+        
+        if (years <= 0) {
+            alert("גיל הפרישה חייב להיות גבוה מהגיל הנוכחי");
+            return;
         }
+
+        const r = annualRate / 12; // ריבית חודשית
+        const n = years * 12; // מספר חודשים
+
+        // חיסכון קיים עם ריבית דה ריבית
+        const existingSavingsGrowth = p * Math.pow(1 + r, n);
+
+        // צמיחת ההפקדות החודשיות (סכום סדרה הנדסית)
+        let monthlyGrowth = 0;
+        if (r > 0) {
+            monthlyGrowth = m * ((Math.pow(1 + r, n) - 1) / r);
+        } else {
+            monthlyGrowth = m * n;
+        }
+
+        const total = existingSavingsGrowth + monthlyGrowth;
+
+        const resDiv = document.getElementById('result');
+        resDiv.style.display = 'block';
+        resDiv.innerHTML = `בגיל הפרישה (${retirementAge}), יעמוד לרשותכם הון משוער של:<br><strong style="font-size: 1.6rem; color: var(--accent);">₪${Math.round(total).toLocaleString()}</strong>`;
     }
 </script>
 
