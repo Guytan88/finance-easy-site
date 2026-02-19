@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחשבון הוצאות חודשיות - FinanceEasy</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f7f6; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 12px; max-width: 500px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .expense-row { display: flex; gap: 10px; margin-bottom: 10px; }
+        input { padding: 10px; border: 1px solid #ccc; border-radius: 6px; flex: 1; }
+        .btn-add { background: #27ae60; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; border-radius: 6px; margin-bottom: 10px; font-weight: bold; }
+        .btn-calc { background: #2c3e50; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 6px; font-weight: bold; }
+        .total { font-size: 1.5em; font-weight: bold; color: #e74c3c; margin-top: 20px; }
+        footer { margin-top: 40px; font-size: 0.9rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px; }
+        a { color: #3498db; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">🏠 חזרה לתפריט</a></nav>
+    <div class="card">
+        <h2>🛒 מחשבון הוצאות דינמי</h2>
+        <div id="expenses-container">
+            <div class="expense-row">
+                <input type="text" placeholder="שם ההוצאה" class="exp-name">
+                <input type="number" placeholder="סכום (₪)" class="exp-val">
+            </div>
+        </div>
+        <button class="btn-add" onclick="addRow()">+ הוסף שורת הוצאה</button>
+        <button class="btn-calc" onclick="calculate()">חשב סה"כ הוצאות</button>
+        <div class="total" id="total-result">סה"כ: ₪0</div>
+    </div>
+    <footer>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחשבון משכנתא - FinanceEasy</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f7f6; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        button { background: #2c3e50; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 6px; font-weight: bold; }
+        .result { margin-top: 20px; padding: 15px; background: #e8f6ef; border-radius: 6px; font-size: 1.2em; }
+        footer { margin-top: 40px; font-size: 0.9rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px; }
+        a { color: #3498db; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">🏠 חזרה לתפריט הראשי</a></nav>
+    <div class="card">
+        <h2>🏠 מחשבון משכנתא</h2>
+        <input type="number" id="amount" placeholder="סכום המשכנתא (₪)">
+        <input type="number" id="rate" step="0.1" placeholder="ריבית שנתית (%)">
+        <input type="number" id="years" placeholder="תקופה בשנים">
+        <button onclick="calc()">חשב החזר חודשי</button>
+        <div id="res" class="result">החזר חודשי מצופה: ₪0</div>
+    </div>
+    <footer>
+        <p>© 2026 FinanceEasy | <a href="privacy.html">מדיניות פרטיות</a></p>
+    </footer>
+    <script>
+        function calc() {
+            const p = parseFloat(document.getElementById('amount').value);
+            const r = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const n = parseFloat(document.getElementById('years').value) * 12;
+            if (p && r && n) {
+                const monthly = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+                document.getElementById('res').innerText = "החזר חודשי מצופה: ₪" + Math.round(monthly).toLocaleString();
+            }
+        }
+    </script>
+</body>
+</html>
