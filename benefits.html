@@ -84,10 +84,61 @@
         .footer-links a:hover {
             color: #3498db;
         }
+        header {
+            background-color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .logo-container { display: inline-block; text-decoration: none; }
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .logo-icon { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 5px 12px; 
+            border-radius: 10px; 
+            font-size: 1.6rem; 
+            -webkit-text-fill-color: white; 
+        }
+
+        nav { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        nav a { 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 600; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+        }
+        nav a:hover { color: var(--secondary); background-color: #f0f7ff; }
     </style>
 </head>
 <body>
-
+<header>
+    <a href="index.html" class="logo-container">
+        <div class="logo-text">
+            <span class="logo-icon">📈</span>
+            כלכלי וקל
+        </div>
+    </a>
+    <nav>
+        <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
+        <a href="benefits.html">הטבות</a>
+        <a href="about.html">אודות</a>
+    </nav>
+</header>
 <nav><a href="index.html" class="back-link">🏠 חזרה למחשבונים</a></nav>
 
 <div class="benefit-container">
@@ -119,4 +170,5 @@
 </body>
 
 </html>
+
 
