@@ -1,1 +1,279 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון ברוטו לנטו מקצועי 2026 - כלכלי וקל</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text-muted: #4a5568;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: var(--primary);
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .logo-container { display: inline-block; text-decoration: none; }
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .logo-icon { background: var(--secondary); color: white; padding: 5px 12px; border-radius: 10px; font-size: 1.6rem; -webkit-text-fill-color: white; }
+
+        nav { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover { color: var(--secondary); background-color: #f0f7ff; }
+
+        .calc-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin: 20px 0 15px 0;
+            font-weight: bold;
+        }
+
+        .grid-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        button:hover { background: #2980b9; }
+
+        .result-panel { margin-top: 30px; display: none; }
+        .net-box {
+            background: #f0fff4;
+            border: 2px solid var(--accent);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .net-amount { font-size: 2.8rem; font-weight: bold; color: var(--accent); }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .info-card {
+            background: #f8fbff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #e0e6ed;
+        }
+        .info-card h4 { margin: 0 0 5px 0; color: var(--primary); font-size: 0.9rem; }
+        .info-card .val { font-size: 1.2rem; font-weight: bold; color: var(--secondary); }
+
+        .breakdown-list {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #444;
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-container">
+        <div class="logo-text">
+            <span class="logo-icon">📊</span>
+            כלכלי וקל
+        </div>
+    </a>
+    <nav>
+        <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
+        <a href="benefits.html">הטבות</a>
+    </nav>
+</header>
+
+<div class="calc-container">
+    <h2 style="text-align: center;">מחשבון שכר נטו 2026 המלא</h2>
+    
+    <div class="section-title">נתוני בסיס</div>
+    <div class="grid-inputs">
+        <div class="input-group">
+            <label>שכר ברוטו (₪)</label>
+            <input type="number" id="gross" value="15000">
+        </div>
+        <div class="input-group">
+            <label>נקודות זיכוי (תושב: 2.25)</label>
+            <input type="number" id="credits" value="2.25" step="0.25">
+        </div>
+    </div>
+
+    <div class="section-title">תוספות והפרשות</div>
+    <div class="grid-inputs">
+        <div class="input-group">
+            <label>מספר ילדים (מתחת ל-18)</label>
+            <input type="number" id="children" value="0">
+        </div>
+        <div class="input-group">
+            <label>קרן השתלמות?</label>
+            <select id="studyFund">
+                <option value="yes">כן (מנכה 2.5% מהשכר)</option>
+                <option value="no">לא</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="calculateProfessionalNet()">חשב נטו מפורט</button>
+
+    <div id="results" class="result-panel">
+        <div class="net-box">
+            <div>השכר שיכנס לבנק (נטו):</div>
+            <div class="net-amount" id="outNet">₪0</div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>סך הפרשות ומיסים</h4>
+                <div class="val" id="outTotalDeductions">₪0</div>
+            </div>
+            <div class="info-card">
+                <h4>עלות מעביד כוללת</h4>
+                <div class="val" id="outEmployerCost">₪0</div>
+            </div>
+        </div>
+        
+        <div class="breakdown-list">
+            <strong>פירוט הניכויים מהשכר:</strong><hr>
+            • מס הכנסה: <span id="detTax"></span> ₪<br>
+            • ביטוח לאומי ובריאות: <span id="detSoc"></span> ₪<br>
+            • פנסיה (עובד): <span id="detPens"></span> ₪<br>
+            • קרן השתלמות (עובד): <span id="detStudy"></span> ₪
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 כלכלי וקל | נתונים מעודכנים לשנת המס 2026
+</footer>
+
+<script>
+    function calculateProfessionalNet() {
+        const gross = parseFloat(document.getElementById('gross').value) || 0;
+        let credits = parseFloat(document.getElementById('credits').value) || 2.25;
+        const children = parseInt(document.getElementById('children').value) || 0;
+        const hasStudyFund = document.getElementById('studyFund').value === 'yes';
+
+        // הוספת נקודות זיכוי עבור ילדים
+        credits += children;
+        const creditValue = credits * 242;
+
+        // 1. ניכויים סוציאליים (פנסיה 6%, השתלמות 2.5%)
+        const pensionEmp = gross * 0.06;
+        const studyEmp = hasStudyFund ? gross * 0.025 : 0;
+
+        // 2. מס הכנסה (מדרגות 2026)
+        let tax = 0;
+        if (gross > 7010) tax += (Math.min(gross, 10060) - 7010) * 0.10;
+        if (gross > 10060) tax += (Math.min(gross, 16150) - 10060) * 0.14;
+        if (gross > 16150) tax += (Math.min(gross, 22440) - 16150) * 0.20;
+        if (gross > 22440) tax += (Math.min(gross, 46690) - 22440) * 0.31;
+        if (gross > 46690) tax += (gross - 46690) * 0.35;
+        
+        tax = Math.max(0, tax - creditValue);
+
+        // 3. ביטוח לאומי ומס בריאות (כולל תקרת מקסימום 2026)
+        let soc = 0;
+        const lowerLimit = 7522;
+        const upperLimit = 49030; // תקרת שכר חודשית
+        
+        const relevantGross = Math.min(gross, upperLimit);
+
+        if (relevantGross <= lowerLimit) {
+            soc = relevantGross * 0.035;
+        } else {
+            soc = (lowerLimit * 0.035) + ((relevantGross - lowerLimit) * 0.12);
+        }
+
+        const totalDeductions = pensionEmp + studyEmp + tax + soc;
+        const net = gross - totalDeductions;
+
+        // 4. עלות מעביד
+        const empPension = gross * 0.125; // פנסיה + פיצויים
+        const empStudy = hasStudyFund ? gross * 0.075 : 0;
+        const empSoc = gross * 0.075; // ממוצע הפרשות מעסיק לביטוח לאומי
+        const totalEmployerCost = gross + empPension + empStudy + empSoc;
+
+        // עדכון ממשק
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('outNet').innerText = "₪" + Math.round(net).toLocaleString();
+        document.getElementById('outTotalDeductions').innerText = "₪" + Math.round(totalDeductions).toLocaleString();
+        document.getElementById('outEmployerCost').innerText = "₪" + Math.round(totalEmployerCost).toLocaleString();
+        
+        document.getElementById('detTax').innerText = Math.round(tax).toLocaleString();
+        document.getElementById('detSoc').innerText = Math.round(soc).toLocaleString();
+        document.getElementById('detPens').innerText = Math.round(pensionEmp).toLocaleString();
+        document.getElementById('detStudy').innerText = Math.round(studyEmp).toLocaleString();
+    }
+</script>
+
+</body>
+</html>
