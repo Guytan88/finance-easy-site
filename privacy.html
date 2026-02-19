@@ -2,11 +2,67 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מדיניות פרטיות - כלכלי וקל</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: auto; text-align: right; background: #f4f7f6; }
-        .content { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        /* עיצוב תחתית העמוד */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text-muted: #4a5568;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: var(--primary);
+            line-height: 1.8;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .logo-container { display: inline-block; text-decoration: none; }
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+        }
+        .logo-icon { background: var(--secondary); color: white; padding: 5px 12px; border-radius: 10px; font-size: 1.6rem; -webkit-text-fill-color: white; }
+
+        nav { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover { color: var(--secondary); background-color: #f0f7ff; }
+
+        /* --- Content --- */
+        .content-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        h1, h2 { color: var(--secondary); }
+        h2 { font-size: 1.3rem; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
         footer {
             background: white;
             padding: 40px 20px;
@@ -23,30 +79,48 @@
             font-size: 0.9rem;
         }
 
-        .footer-links a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #3498db;
-        }
+        .footer-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; }
+        .footer-links a:hover { color: var(--secondary); }
     </style>
 </head>
 <body>
-<div class="content">
-    <h1>מדיניות פרטיות</h1>
-    <p>באתר "כלכלי וקל", פרטיות המבקרים שלנו חשובה לנו מאוד. מסמך זה מפרט אילו סוגי מידע נאספים.</p>
-    <h2>קובצי Log ו-Cookies</h2>
-    <p>אנו משתמשים בעוגיות (Cookies) כדי לשפר את חווית המשתמש ולנתח תנועה באתר דרך Google Analytics. כמו כן, גוגל כספק צד שלישי משתמש בעוגיות כדי להציג מודעות באתר.</p>
-    <h2>שיווק שותפים</h2>
-    <p>האתר משתתף בתוכניות שיווק שותפים. לחיצה על קישורי הטבות עשויה להוביל לקבלת עמלה לאתר, ללא עלות נוספת מצד המשתמש.</p>
-    <h2>הסרת אחריות</h2>
-    <p>השימוש במחשבונים הוא באחריות המשתמש בלבד. המידע אינו מהווה ייעוץ פיננסי.</p>
-    <a href="index.html">חזרה לדף הבית</a>
+
+<header>
+    <a href="index.html" class="logo-container">
+        <div class="logo-text">
+            <span class="logo-icon">📈</span>
+            כלכלי וקל
+        </div>
+    </a>
+    <nav>
+        <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
+        <a href="benefits.html">הטבות</a>
+        <a href="about.html">אודות</a>
+    </nav>
+</header>
+
+<div class="content-container">
+    <h1>מדיניות פרטיות (Privacy Policy)</h1>
+    <p>באתר "כלכלי וקל", פרטיות המבקרים שלנו היא בעלת חשיבות עליונה. מסמך מדיניות פרטיות זה מפרט את סוגי המידע האישי שנאסף ומאוחסן על ידינו וכיצד אנו משתמשים בו.</p>
+
+    <h2>1. קבצי לוג (Log Files)</h2>
+    <p>כמו אתרים רבים אחרים, "כלכלי וקל" עושה שימוש בקבצי לוג. מידע זה כולל כתובות פרוטוקול אינטרנט (IP), סוג דפדפן, ספק שירותי אינטרנט (ISP), חותמות תאריך/שעה, דפי הפניה/יציאה ומספר קליקים. מידע זה משמש לניתוח מגמות, ניהול האתר ומעקב אחר תנועת המשתמשים, ואינו מקושר למידע המזהה אותך אישית.</p>
+
+    <h2>2. עוגיות (Cookies) ומשואות רשת</h2>
+    <p>אנו משתמשים בעוגיות כדי לאחסן מידע על העדפות המבקרים, לתעד מידע ספציפי על הדפים אליהם המשתמש ניגש ולהתאים אישית את תוכן דף האינטרנט בהתאם לסוג הדפדפן של המבקר.</p>
+
+    <h2>3. עוגיית DoubleClick DART של Google</h2>
+    <p>גוגל, כספק צד שלישי, משתמשת בעוגיות כדי להציג מודעות באתר שלנו. השימוש של גוגל בעוגיית DART מאפשר לה להציג מודעות למשתמשים בהתבסס על ביקורם באתרנו ובאתרים אחרים באינטרנט. משתמשים יכולים לבטל את השימוש בעוגיית DART על ידי ביקור במדיניות הפרטיות של רשת המודעות והתוכן של גוגל.</p>
+
+    <h2>4. השותפים המפרסמים שלנו</h2>
+    <p>חלק מהשותפים המפרסמים שלנו עשויים להשתמש בעוגיות ובמשואות רשת באתרנו. השותפים שלנו כוללים את **Google AdSense**. שרתי מודעות או רשתות מודעות של צד שלישי אלו משתמשים בטכנולוגיה כדי לשלוח את הפרסומות והקישורים המופיעים ב"כלכלי וקל" ישירות לדפדפן שלך.</p>
+    <p>לידיעתך, ל"כלכלי וקל" אין גישה או שליטה על עוגיות אלו המשמשות מפרסמים צד שלישי.</p>
+
+    <h2>5. הסכמה</h2>
+    <p>על ידי שימוש באתר שלנו, אתה מסכים בזאת למדיניות הפרטיות שלנו ומסכים לתנאיה.</p>
 </div>
+
 <footer>
     <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
     <div class="footer-links">
@@ -55,7 +129,6 @@
         <a href="about.html">אודות האתר</a>
     </div>
 </footer>
+
 </body>
 </html>
-
-
