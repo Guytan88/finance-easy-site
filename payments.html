@@ -1,70 +1,33 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>מחשבון תשלומים - FinanceEasy</title>
-    <style>
-        body { font-family: sans-serif; padding: 20px; background: #f4f7f6; text-align: center; }
-        .card { background: white; padding: 25px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
-        button { background: #e67e22; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 6px; }
-        footer { margin-top: 40px; font-size: 0.9rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px; }
-        a { color: #3498db; text-decoration: none; font-weight: bold; }
-    </style>
+    <title>מחשבון תשלומים - כלכלי וקל</title>
+    <style> /* אותו Style כמו במחשבון תשואה */ </style>
 </head>
 <body>
-    <nav><a href="index.html">🏠 חזרה</a></nav>
-    <div class="card">
-        <h2>💰 מחשבון תשלומים</h2>
-        <input type="number" id="p_amount" placeholder="סכום כולל לתשלום">
-        <input type="number" id="p_count" placeholder="מספר תשלומים">
-        <button onclick="calc()">חשב תשלום חודשי</button>
-        <h3 id="res">גובה כל תשלום: ₪0</h3>
-    </div>
-    <style>
-    .affiliate-banner {
-        background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-        border: 2px dashed #3498db;
-        border-radius: 12px;
-        padding: 20px;
-        margin: 30px auto;
-        max-width: 600px;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    .affiliate-banner h3 { color: #2c3e50; margin-top: 0; }
-    .affiliate-banner p { font-size: 0.95rem; color: #555; }
-    .affiliate-btn {
-        display: inline-block;
-        background-color: #27ae60;
-        color: white;
-        padding: 12px 25px;
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: bold;
-        margin-top: 10px;
-        transition: background 0.3s;
-    }
-    .affiliate-btn:hover { background-color: #219150; }
-    .disclosure { font-size: 0.75rem; color: #999; margin-top: 15px; }
-</style>
-
-<div class="affiliate-banner">
-    <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
-    <p>רוצים להתחיל להשקיע? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
-    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
-    <div class="disclosure">* גילוי נאות: לחיצה על הקישור והרשמה עשויה להניב עמלה לאתר. השירות באחריות אקסלנס.</div>
+<header>
+    <a href="index.html" class="logo-container"><div class="logo-text"><span class="logo-icon">💳</span>כלכלי וקל</div></a>
+    <nav><a href="index.html">בית</a><a href="articles.html">מאמרים</a><a href="benefits.html">הטבות</a></nav>
+</header>
+<div class="calc-container">
+    <h2 style="text-align: center;">מחשבון פריסת תשלומים</h2>
+    <div class="input-group"><label>סכום עסקה כולל (₪)</label><input type="number" id="totalAmount"></div>
+    <div class="input-group"><label>מספר תשלומים</label><input type="number" id="installments"></div>
+    <button onclick="calculatePayments()">חשב תשלום חודשי</button>
+    <div id="result" class="result"></div>
 </div>
-    <footer>
-        <p>© 2026 FinanceEasy | <a href="privacy.html">מדיניות פרטיות</a></p>
-    </footer>
-    <script>
-        function calc() {
-            const a = parseFloat(document.getElementById('p_amount').value);
-            const c = parseFloat(document.getElementById('p_count').value);
-            if (a && c) document.getElementById('res').innerText = "גובה כל תשלום: ₪" + (a / c).toLocaleString();
+<script>
+    function calculatePayments() {
+        const total = parseFloat(document.getElementById('totalAmount').value);
+        const num = parseInt(document.getElementById('installments').value);
+        if (total > 0 && num > 0) {
+            const monthly = total / num;
+            const resDiv = document.getElementById('result');
+            resDiv.style.display = 'block';
+            resDiv.innerHTML = `גובה כל תשלום חודשי:<br><strong>₪${monthly.toFixed(2)}</strong>`;
         }
-    </script>
+    }
+</script>
 </body>
-
 </html>
