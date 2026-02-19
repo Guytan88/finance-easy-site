@@ -133,6 +133,28 @@
             border-radius: 10px;
         }
 
+        /* --- Affiliate Banner --- */
+        .affiliate-banner {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border: 2px dashed var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        .affiliate-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.85rem; }
     </style>
 </head>
@@ -153,7 +175,7 @@
 </header>
 
 <div class="calc-container">
-    <h2 style="text-align: center;">מחשבון שכר ברוטו לנטו 2026 המלא</h2>
+    <h2 style="text-align: center;">מחשבון שכר נטו 2026 המלא</h2>
     
     <div class="section-title">נתוני בסיס</div>
     <div class="grid-inputs">
@@ -211,6 +233,13 @@
     </div>
 </div>
 
+<div class="affiliate-banner">
+    <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
+    <p>רוצים להפוך את הנטו שלכם ליותר? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
+    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
+    <div style="font-size: 0.75rem; color: #999; margin-top: 15px;">* גילוי נאות: לחיצה על הקישור עשויה להניב עמלה לאתר.</div>
+</div>
+
 <footer>
     © 2026 כלכלי וקל | נתונים מעודכנים לשנת המס 2026
 </footer>
@@ -222,29 +251,23 @@
         const children = parseInt(document.getElementById('children').value) || 0;
         const hasStudyFund = document.getElementById('studyFund').value === 'yes';
 
-        // הוספת נקודות זיכוי עבור ילדים
         credits += children;
         const creditValue = credits * 242;
 
-        // 1. ניכויים סוציאליים (פנסיה 6%, השתלמות 2.5%)
         const pensionEmp = gross * 0.06;
         const studyEmp = hasStudyFund ? gross * 0.025 : 0;
 
-        // 2. מס הכנסה (מדרגות 2026)
         let tax = 0;
         if (gross > 7010) tax += (Math.min(gross, 10060) - 7010) * 0.10;
         if (gross > 10060) tax += (Math.min(gross, 16150) - 10060) * 0.14;
         if (gross > 16150) tax += (Math.min(gross, 22440) - 16150) * 0.20;
         if (gross > 22440) tax += (Math.min(gross, 46690) - 22440) * 0.31;
         if (gross > 46690) tax += (gross - 46690) * 0.35;
-        
         tax = Math.max(0, tax - creditValue);
 
-        // 3. ביטוח לאומי ומס בריאות (כולל תקרת מקסימום 2026)
         let soc = 0;
         const lowerLimit = 7522;
-        const upperLimit = 49030; // תקרת שכר חודשית
-        
+        const upperLimit = 49030;
         const relevantGross = Math.min(gross, upperLimit);
 
         if (relevantGross <= lowerLimit) {
@@ -256,13 +279,11 @@
         const totalDeductions = pensionEmp + studyEmp + tax + soc;
         const net = gross - totalDeductions;
 
-        // 4. עלות מעביד
-        const empPension = gross * 0.125; // פנסיה + פיצויים
+        const empPension = gross * 0.125;
         const empStudy = hasStudyFund ? gross * 0.075 : 0;
-        const empSoc = gross * 0.075; // ממוצע הפרשות מעסיק לביטוח לאומי
+        const empSoc = gross * 0.075;
         const totalEmployerCost = gross + empPension + empStudy + empSoc;
 
-        // עדכון ממשק
         document.getElementById('results').style.display = 'block';
         document.getElementById('outNet').innerText = "₪" + Math.round(net).toLocaleString();
         document.getElementById('outTotalDeductions').innerText = "₪" + Math.round(totalDeductions).toLocaleString();
