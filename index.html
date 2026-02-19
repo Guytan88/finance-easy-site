@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>כלכלי וקל - מחשבונים פיננסיים פשוטים</title>
+    <title>כלכלי וקל - מחשבונים ומדריכים פיננסיים</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -68,6 +68,12 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
+        /* עיצוב מיוחד לתיבת המאמרים */
+        .article-box {
+            border: 2px solid var(--secondary);
+            background: #eef7ff;
+        }
+
         .icon { font-size: 3rem; margin-bottom: 15px; }
 
         footer {
@@ -92,17 +98,23 @@
     <h1>כלכלי וקל 📈</h1>
     <nav>
         <a href="index.html">בית</a>
-        <a href="articles.html">מאמרים</a>
         <a href="benefits.html">הטבות</a>
+        <a href="about.html">אודות</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>כלים פיננסיים פשוטים להחלטות חכמות</h2>
+    <h2>כלים פיננסיים וידע פשוט להחלטות חכמות</h2>
     <p>הכוח לנהל את הכסף שלכם נכון – פשוט ונגיש לכל בית בישראל.</p>
 </section>
 
 <div class="container">
+    <a href="articles.html" class="calc-card article-box">
+        <div class="icon">📖</div>
+        <h2>מאמרים ומדריכים</h2>
+        <p>טיפים וכלים לחיסכון והתנהלות נכונה</p>
+    </a>
+
     <a href="mortgage.html" class="calc-card">
         <div class="icon">🏠</div>
         <h2>מחשבון משכנתא</h2>
@@ -121,16 +133,16 @@
         <p>מעקב וניהול תקציב חודשי אישי</p>
     </a>
 
-    <a href="retirement.html" class="calc-card">
-        <div class="icon">🏖️</div>
-        <h2>מחשבון פרישה</h2>
-        <p>בדיקת המוכנות הכלכלית לגיל הפרישה</p>
-    </a>
-
     <a href="payments.html" class="calc-card">
         <div class="icon">💳</div>
         <h2>מחשבון תשלומים</h2>
         <p>פריסת תשלומים בצורה מאוזנת</p>
+    </a>
+
+    <a href="retirement.html" class="calc-card">
+        <div class="icon">🏖️</div>
+        <h2>מחשבון פרישה</h2>
+        <p>בדיקת המוכנות הכלכלית לגיל הפרישה</p>
     </a>
 
     <a href="roi.html" class="calc-card">
@@ -148,11 +160,9 @@
 
 <footer>
     <p>© 2026 כלכלי וקל | תומכים במשקי הבית בישראל</p>
-    <a href="about.html">אודות הפרויקט</a> |
+    <a href="articles.html">מאמרים ומדריכים</a> |
     <a href="privacy.html">מדיניות פרטיות</a>
 </footer>
 
 </body>
 </html>
-
-
