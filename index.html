@@ -11,6 +11,7 @@
             --accent: #27ae60;
             --bg: #f4f7f6;
             --white: #ffffff;
+            --text-muted: #4a5568;
         }
 
         body {
@@ -19,12 +20,13 @@
             margin: 0;
             padding: 0;
             color: var(--primary);
+            line-height: 1.6;
         }
 
-        /* שדרוג הלוגו והתפריט */
+        /* --- Header & Logo Section --- */
         header {
             background-color: var(--white);
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-bottom: 4px solid var(--secondary);
@@ -64,36 +66,70 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-            -webkit-text-fill-color: white; /* מבטל את השקיפות של הטקסט עבור האייקון */
+            -webkit-text-fill-color: white;
         }
 
+        /* --- Navigation Bar --- */
         nav {
-            margin-top: 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
-            color: #555;
+            color: var(--text-muted);
             font-weight: 600;
-            margin: 0 15px;
             font-size: 1.1rem;
-            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         nav a:hover {
             color: var(--secondary);
+            background-color: #f0f7ff;
         }
 
-        /* שאר העיצוב */
+        nav a:hover::after {
+            width: 60%;
+        }
+
+        /* --- Hero Section --- */
         .hero {
             padding: 60px 20px;
             text-align: center;
         }
 
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* --- Grid Container --- */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -101,20 +137,20 @@
 
         .calc-card {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 35px;
+            border-radius: 20px;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
-            border: 1px solid transparent;
+            border: 1px solid #f0f0f0;
         }
 
         .calc-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-            border-color: #eee;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
         }
 
         .article-box {
@@ -122,21 +158,31 @@
             background: #eef7ff;
         }
 
-        .icon { font-size: 3rem; margin-bottom: 15px; }
+        .benefit-box {
+            border: 2px solid var(--accent);
+            background: #f0fff4;
+        }
 
+        .icon { font-size: 3.2rem; margin-bottom: 20px; }
+
+        h2 { font-size: 1.5rem; margin-bottom: 10px; color: var(--primary); }
+        p { color: #718096; margin: 0; }
+
+        /* --- Footer --- */
         footer {
             background: white;
-            padding: 40px;
+            padding: 50px 20px;
             text-align: center;
             margin-top: 60px;
             border-top: 1px solid #eee;
         }
 
+        footer p { margin-bottom: 15px; color: #4a5568; }
         footer a {
-            color: #888;
+            color: var(--secondary);
             text-decoration: none;
             margin: 0 10px;
-            font-size: 0.9rem;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -204,7 +250,7 @@
         <p>בדיקת אחוז הרווח על ההשקעות שלכם</p>
     </a>
 
-    <a href="benefits.html" class="calc-card" style="border: 2px solid var(--accent); background: #f0fff4;">
+    <a href="benefits.html" class="calc-card benefit-box">
         <div class="icon">🎁</div>
         <h2 style="color: var(--accent);">ההטבות שלנו</h2>
         <p>הטבות בלעדיות למשקיעים חדשים</p>
@@ -213,10 +259,11 @@
 
 <footer>
     <p>© 2026 כלכלי וקל | תומכים במשקי הבית בישראל</p>
-    <nav style="margin-top: 10px;">
+    <div class="footer-links">
         <a href="articles.html">מאמרים ומדריכים</a> |
-        <a href="privacy.html">מדיניות פרטיות</a>
-    </nav>
+        <a href="privacy.html">מדיניות פרטיות</a> |
+        <a href="about.html">אודות הפרויקט</a>
+    </div>
 </footer>
 
 </body>
