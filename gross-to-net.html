@@ -94,9 +94,7 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 20px;
-            transition: background 0.3s;
         }
-        button:hover { background: #2980b9; }
 
         .result-panel { margin-top: 30px; display: none; }
         .net-box {
@@ -133,7 +131,6 @@
             border-radius: 10px;
         }
 
-        /* --- Affiliate Banner --- */
         .affiliate-banner {
             background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             border: 2px dashed var(--secondary);
@@ -155,7 +152,31 @@
             margin-top: 15px;
         }
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.85rem; }
+        footer {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
     </style>
 </head>
 <body>
@@ -236,12 +257,15 @@
 <div class="affiliate-banner">
     <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
     <p>רוצים להפוך את הנטו שלכם ליותר? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
-    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
-    <div style="font-size: 0.75rem; color: #999; margin-top: 15px;">* גילוי נאות: לחיצה על הקישור עשויה להניב עמלה לאתר.</div>
+    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">קבלת ההטבה</a>
 </div>
 
 <footer>
-    © 2026 כלכלי וקל | נתונים מעודכנים לשנת המס 2026
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <div class="footer-links">
+        <a href="terms.html">תנאי שימוש וגילוי נאות</a>
+        <a href="about.html">אודות האתר</a>
+    </div>
 </footer>
 
 <script>
