@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>מחשבון פרישה - FinanceEasy</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f7f6; text-align: center; }
+        .card { background: white; padding: 25px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        button { background: #9b59b6; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 6px; font-weight: bold; }
+        footer { margin-top: 40px; font-size: 0.9rem; color: #888; border-top: 1px solid #ddd; padding-top: 20px; }
+        a { color: #3498db; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html">🏠 חזרה</a></nav>
+    <div class="card">
+        <h2>🏖️ מחשבון יעד פרישה</h2>
+        <input type="number" id="goal" placeholder="סכום יעד לפרישה (₪)">
+        <input type="number" id="current" placeholder="חיסכון קיים כיום (₪)">
+        <button onclick="calc()">חשב פער חיסכון</button>
+        <h3 id="res"></h3>
+    </div>
+    <footer>
+        <p>© 2026 FinanceEasy | <a href="privacy.html">מדיניות פרטיות</a></p>
+    </footer>
+    <script>
+        function calc() {
+            const g = parseFloat(document.getElementById('goal').value) || 0;
+            const c = parseFloat(document.getElementById('current').value) || 0;
+            const diff = g - c;
+            document.getElementById('res').innerText = diff > 0 ? "חסר לך עוד: ₪" + diff.toLocaleString() : "הגעת ליעד הפרישה!";
+        }
+    </script>
+</body>
+</html>
