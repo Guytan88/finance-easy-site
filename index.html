@@ -23,7 +23,6 @@
             line-height: 1.6;
         }
 
-        /* --- Header & Logo Section --- */
         header {
             background-color: var(--white);
             padding: 30px 20px;
@@ -38,10 +37,6 @@
             transition: transform 0.2s ease;
         }
 
-        .logo-container:hover {
-            transform: scale(1.02);
-        }
-
         .logo-text {
             font-size: 2.8rem;
             font-weight: 900;
@@ -53,7 +48,6 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            letter-spacing: -1px;
         }
 
         .logo-icon {
@@ -62,14 +56,9 @@
             padding: 8px 15px;
             border-radius: 12px;
             font-size: 2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
             -webkit-text-fill-color: white;
         }
 
-        /* --- Navigation Bar --- */
         nav {
             margin-top: 25px;
             display: flex;
@@ -81,23 +70,9 @@
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 600;
-            font-size: 1.1rem;
             padding: 10px 20px;
             border-radius: 10px;
             transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
         }
 
         nav a:hover {
@@ -105,27 +80,11 @@
             background-color: #f0f7ff;
         }
 
-        nav a:hover::after {
-            width: 60%;
-        }
-
-        /* --- Hero Section --- */
         .hero {
             padding: 60px 20px;
             text-align: center;
         }
 
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        /* --- Grid Container --- */
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,7 +101,7 @@
             text-decoration: none;
             color: inherit;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             text-align: center;
             border: 1px solid #f0f0f0;
         }
@@ -153,36 +112,21 @@
             border-color: var(--secondary);
         }
 
-        .article-box {
+        .featured-card {
             border: 2px solid var(--secondary);
-            background: #eef7ff;
-        }
-
-        .benefit-box {
-            border: 2px solid var(--accent);
-            background: #f0fff4;
+            background: #f8fbff;
         }
 
         .icon { font-size: 3.2rem; margin-bottom: 20px; }
-
-        h2 { font-size: 1.5rem; margin-bottom: 10px; color: var(--primary); }
+        h2 { font-size: 1.5rem; margin-bottom: 10px; }
         p { color: #718096; margin: 0; }
 
-        /* --- Footer --- */
         footer {
             background: white;
             padding: 50px 20px;
             text-align: center;
             margin-top: 60px;
             border-top: 1px solid #eee;
-        }
-
-        footer p { margin-bottom: 15px; color: #4a5568; }
-        footer a {
-            color: var(--secondary);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
         }
     </style>
 </head>
@@ -197,72 +141,71 @@
     </a>
     <nav>
         <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
         <a href="benefits.html">הטבות</a>
         <a href="about.html">אודות</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>כלים פיננסיים וידע פשוט להחלטות חכמות</h2>
-    <p>הכוח לנהל את הכסף שלכם נכון – פשוט ונגיש לכל בית בישראל.</p>
+    <h2>החלטות כלכליות חכמות מתחילות כאן</h2>
+    <p>מחשבונים מתקדמים וכלים פשוטים לניהול הכסף שלכם.</p>
 </section>
 
 <div class="container">
-    <a href="articles.html" class="calc-card article-box">
-        <div class="icon">📖</div>
-        <h2>מאמרים ומדריכים</h2>
-        <p>טיפים וכלים לחיסכון והתנהלות נכונה</p>
+    <a href="buy-vs-rent.html" class="calc-card featured-card">
+        <div class="icon">🏢</div>
+        <h2>קנייה מול שכירות</h2>
+        <p>האם עדיף לקנות דירה או לשכור ולהשקיע? המודל המלא.</p>
     </a>
 
     <a href="mortgage.html" class="calc-card">
         <div class="icon">🏠</div>
         <h2>מחשבון משכנתא</h2>
-        <p>חישוב החזר חודשי ותכנון הלוואה</p>
+        <p>חישוב החזר חודשי ותכנון הלוואה.</p>
     </a>
 
     <a href="compound.html" class="calc-card">
         <div class="icon">📊</div>
         <h2>ריבית דה ריבית</h2>
-        <p>ראו איך החיסכון שלכם צומח לאורך זמן</p>
-    </a>
-
-    <a href="expenses.html" class="calc-card">
-        <div class="icon">🛒</div>
-        <h2>מחשבון הוצאות</h2>
-        <p>מעקב וניהול תקציב חודשי אישי</p>
-    </a>
-
-    <a href="payments.html" class="calc-card">
-        <div class="icon">💳</div>
-        <h2>מחשבון תשלומים</h2>
-        <p>פריסת תשלומים בצורה מאוזנת</p>
+        <p>ראו איך החיסכון שלכם צומח לאורך זמן.</p>
     </a>
 
     <a href="retirement.html" class="calc-card">
         <div class="icon">🏖️</div>
         <h2>מחשבון פרישה</h2>
-        <p>בדיקת המוכנות הכלכלית לגיל הפרישה</p>
+        <p>בדיקת המוכנות הכלכלית לגיל הפרישה.</p>
+    </a>
+
+    <a href="expenses.html" class="calc-card">
+        <div class="icon">🛒</div>
+        <h2>ניהול הוצאות</h2>
+        <p>מעקב וניהול תקציב חודשי אישי.</p>
     </a>
 
     <a href="roi.html" class="calc-card">
         <div class="icon">💰</div>
         <h2>מחשבון תשואה</h2>
-        <p>בדיקת אחוז הרווח על ההשקעות שלכם</p>
+        <p>בדיקת אחוז הרווח על ההשקעות שלכם.</p>
     </a>
 
-    <a href="benefits.html" class="calc-card benefit-box">
-        <div class="icon">🎁</div>
-        <h2 style="color: var(--accent);">ההטבות שלנו</h2>
-        <p>הטבות בלעדיות למשקיעים חדשים</p>
+    <a href="payments.html" class="calc-card">
+        <div class="icon">💳</div>
+        <h2>מחשבון תשלומים</h2>
+        <p>פריסת תשלומים בצורה מאוזנת.</p>
+    </a>
+
+    <a href="articles.html" class="calc-card">
+        <div class="icon">📖</div>
+        <h2>מדריכים פיננסיים</h2>
+        <p>ידע שיעזור לכם לחסוך יותר.</p>
     </a>
 </div>
 
 <footer>
-    <p>© 2026 כלכלי וקל | תומכים במשקי הבית בישראל</p>
-    <div class="footer-links">
-        <a href="articles.html">מאמרים ומדריכים</a> |
-        <a href="privacy.html">מדיניות פרטיות</a> |
-        <a href="about.html">אודות הפרויקט</a>
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <div>
+        <a href="privacy.html" style="text-decoration:none; color:#888;">מדיניות פרטיות</a>
     </div>
 </footer>
 
