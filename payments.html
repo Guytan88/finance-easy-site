@@ -1,33 +1,221 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מחשבון תשלומים - כלכלי וקל</title>
-    <style> /* אותו Style כמו במחשבון תשואה */ </style>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text-muted: #4a5568;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: var(--primary);
+        }
+
+        /* --- Header & Logo Section --- */
+        header {
+            background-color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: inline-block;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            -webkit-text-fill-color: white;
+        }
+
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+            background-color: #f0f7ff;
+        }
+
+        /* --- Calculator Section --- */
+        .calc-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: right;
+        }
+
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { background: #2980b9; }
+
+        .result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #eef7ff;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.2rem;
+            display: none;
+            border: 1px solid var(--secondary);
+        }
+
+        /* --- Affiliate Banner --- */
+        .affiliate-banner {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border: 2px dashed var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .affiliate-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .disclosure { font-size: 0.75rem; color: #999; margin-top: 15px; }
+
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
+
 <header>
-    <a href="index.html" class="logo-container"><div class="logo-text"><span class="logo-icon">💳</span>כלכלי וקל</div></a>
-    <nav><a href="index.html">בית</a><a href="articles.html">מאמרים</a><a href="benefits.html">הטבות</a></nav>
+    <a href="index.html" class="logo-container">
+        <div class="logo-text">
+            <span class="logo-icon">💳</span>
+            כלכלי וקל
+        </div>
+    </a>
+    <nav>
+        <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
+        <a href="benefits.html">הטבות</a>
+    </nav>
 </header>
+
 <div class="calc-container">
-    <h2 style="text-align: center;">מחשבון פריסת תשלומים</h2>
-    <div class="input-group"><label>סכום עסקה כולל (₪)</label><input type="number" id="totalAmount"></div>
-    <div class="input-group"><label>מספר תשלומים</label><input type="number" id="installments"></div>
+    <h2 style="text-align: center; margin-bottom: 30px;">מחשבון תשלומים</h2>
+    
+    <div class="input-group">
+        <label>סכום העסקה הכולל (₪)</label>
+        <input type="number" id="totalAmount" placeholder="למשל: 1,200">
+    </div>
+    
+    <div class="input-group">
+        <label>מספר תשלומים</label>
+        <input type="number" id="installments" placeholder="למשל: 12">
+    </div>
+    
     <button onclick="calculatePayments()">חשב תשלום חודשי</button>
+    
     <div id="result" class="result"></div>
 </div>
+
+<div class="affiliate-banner">
+    <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
+    <p>רוצים להתחיל להשקיע? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
+    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
+    <div class="disclosure">* גילוי נאות: לחיצה על הקישור והרשמה עשויה להניב עמלה לאתר. השירות באחריות אקסלנס.</div>
+</div>
+
+<footer>
+    © 2026 כלכלי וקל | צריכת תשלומים חכמה היא המפתח לשקט כלכלי
+</footer>
+
 <script>
     function calculatePayments() {
         const total = parseFloat(document.getElementById('totalAmount').value);
         const num = parseInt(document.getElementById('installments').value);
+        
         if (total > 0 && num > 0) {
             const monthly = total / num;
             const resDiv = document.getElementById('result');
             resDiv.style.display = 'block';
-            resDiv.innerHTML = `גובה כל תשלום חודשי:<br><strong>₪${monthly.toFixed(2)}</strong>`;
+            resDiv.innerHTML = `גובה כל תשלום חודשי:<br><strong style="font-size: 1.6rem; color: var(--primary);">₪${monthly.toFixed(2).toLocaleString()}</strong>`;
+        } else {
+            alert("נא למלא את כל השדות בצורה תקינה");
         }
     }
 </script>
+
 </body>
 </html>
