@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מרכז הידע - כלכלי וקל</title>
+    <style>
+        :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f4f7f6; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: var(--primary); }
+        header { background: white; padding: 30px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .article-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .tag { background: var(--secondary); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; width: fit-content; margin-bottom: 10px; }
+        h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); }
+        p { color: #666; font-size: 0.95rem; flex-grow: 1; }
+        .read-more { color: var(--secondary); font-weight: bold; margin-top: 15px; }
+        nav { margin-bottom: 15px; }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: bold; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>מרכז הידע של כלכלי וקל 📖</h1>
+    <nav>
+        <a href="index.html">🏠 חזרה לבית</a>
+        <a href="benefits.html">🎁 הטבות</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="article-grid">
+        <a href="mortgage-tips.html" class="article-card">
+            <span class="tag">משכנתא</span>
+            <h2>5 טעויות נפוצות בלקיחת משכנתא</h2>
+            <p>איך להימנע מקנסות מיותרים ולבחור תמהיל מסלולים שחוסך לכם כסף.</p>
+            <span class="read-more">קראו עוד ←</span>
+        </a>
+
+        <div class="article-card" style="opacity: 0.7; cursor: default;">
+            <span class="tag">חיסכון</span>
+            <h2>כוחה של ריבית דה ריבית</h2>
+            <p>איך סכומים קטנים הופכים להון משמעותי לאורך זמן? המדריך למתחילים. (בקרוב)</p>
+        </div>
+
+        <div class="article-card" style="opacity: 0.7; cursor: default;">
+            <span class="tag">ניהול תקציב</span>
+            <h2>איך לבנות תקציב חודשי מנצח</h2>
+            <p>שיטת ה-50/30/20 וטיפים פרקטיים לשליטה בהוצאות הבית. (בקרוב)</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p style="text-align: center; color: #888; padding: 20px;">© 2026 כלכלי וקל | המידע באתר אינו מהווה ייעוץ פיננסי מוסמך.</p>
+</footer>
+
+</body>
+</html>
