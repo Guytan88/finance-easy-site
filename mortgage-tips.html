@@ -14,6 +14,33 @@
         nav { text-align: center; margin-bottom: 20px; }
         a { color: var(--secondary); text-decoration: none; font-weight: bold; }
         .disclaimer { font-size: 0.85rem; color: #777; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+        /* עיצוב תחתית העמוד */
+        footer {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +105,11 @@
     <div class="disclosure">* גילוי נאות: לחיצה על הקישור והרשמה עשויה להניב עמלה לאתר. השירות באחריות אקסלנס.</div>
 </div>
 <footer>
-    <p style="text-align: center;">© 2026 כלכלי וקל | <a href="privacy.html">מדיניות פרטיות</a></p>
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <div class="footer-links">
+        <a href="terms.html">תנאי שימוש וגילוי נאות</a>
+        <a href="about.html">אודות האתר</a>
+    </div>
 </footer>
 
 </body>
