@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבונים מתמטיים - כלכלי וקל</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; 
+            --secondary: #3498db; 
+            --math-accent: #9b59b6; /* צבע סגול עדין למיתוג מתמטיקה */
+            --bg: #f4f7f6; 
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: var(--primary); }
+        
+        header { background: white; padding: 30px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-bottom: 4px solid var(--math-accent); }
+        header h1 { margin: 0; font-size: 2rem; }
+        
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+        
+        nav { margin-bottom: 25px; text-align: center; }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: bold; margin: 0 10px; transition: 0.3s; }
+        nav a:hover { color: var(--math-accent); }
+
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        
+        .tool-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            flex-direction: column; 
+            border-right: 5px solid var(--math-accent);
+        }
+        .tool-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        .icon-tag { font-size: 2rem; margin-bottom: 10px; }
+        h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); }
+        p { color: #666; font-size: 0.95rem; flex-grow: 1; line-height: 1.6; }
+        .action-text { color: var(--math-accent); font-weight: bold; margin-top: 15px; }
+
+        footer {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-links a { text-decoration: none; color: #4a5568; font-weight: 600; transition: 0.3s; }
+        .footer-links a:hover { color: var(--secondary); }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092090861249134"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <h1>מחשבונים מתמטיים ולימודיים 📐</h1>
+    <nav>
+        <a href="index.html">🏠 חזרה לבית</a>
+        <a href="articles.html">📖 כתבות</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="tools-grid">
+        <a href="math-trig.html" class="tool-card">
+            <div class="icon-tag">📉</div>
+            <h2>מחשבון טריגונומטריה </h2>
+            <p>חישוב ערכי סינוס, קוסינוס וטנגנס כולל ייצוג מדויק עם פאי ושורשים על מעגל היחידה.</p>
+            <span class="action-text">למעבר למחשבון ←</span>
+        </a>
+
+        <div class="tool-card" style="opacity: 0.7; cursor: default;">
+            <div class="icon-tag">🔢</div>
+            <h2>פתרון משוואות ריבועיות</h2>
+            <p>מציאת שורשי המשוואה $ax^2 + bx + c = 0$ כולל דרך הפתרון המלאה. (בקרוב)</p>
+        </div>
+
+        <div class="tool-card" style="opacity: 0.7; cursor: default;">
+            <div class="icon-tag">📏</div>
+            <h2>מחשבון גאומטריה</h2>
+            <p>חישוב שטחים ונפחים של צורות גאומטריות מורכבות בלחיצת כפתור. (בקרוב)</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <div class="footer-links">
+        <a href="terms.html">תנאי שימוש</a>
+        <a href="privacy.html">מדיניות פרטיות</a>
+        <a href="about.html">אודות האתר</a>
+    </div>
+</footer>
+
+</body>
+</html>
