@@ -159,7 +159,6 @@
         .affiliate-btn:hover { background: #219150; }
         .disclosure { font-size: 0.75rem; color: #999; margin-top: 15px; }
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
         /* עיצוב תחתית העמוד */
         footer {
             background: white;
@@ -167,6 +166,8 @@
             text-align: center;
             margin-top: 60px;
             border-top: 1px solid #eee;
+            color: #888;
+            font-size: 0.9rem;
         }
 
         .footer-links {
@@ -253,7 +254,55 @@
 
 <script>
     function calculateCompound() {
+        // משיכת הנתונים מהשדות (אם השדה ריק, נתייחס אליו כ-0)
+        let principal = parseFloat(document.getElementById('principal').value) || 0;
+        let monthly = parseFloat(document.getElementById('monthly').value) || 0;
+        let years = parseFloat(document.getElementById('years').value) || 0;
+        let annualRate = parseFloat(document.getElementById('rate').value) || 0;
 
+        // בדיקת תקינות בסיסית
+        if (years <= 0) {
+            alert("אנא הזן תקופה חוקית (בשנים).");
+            return;
+        }
 
+        // המרת נתונים לחודשים ולריבית חודשית עשרונית
+        let months = years * 12;
+        let monthlyRate = (annualRate / 100) / 12;
+        
+        let futureValue = 0;
+        let totalInvested = principal + (monthly * months);
 
+        // חישוב הריבית
+        if (monthlyRate === 0) {
+            futureValue = totalInvested;
+        } else {
+            // חישוב ריבית דריבית על הקרן + ערך עתידי של ההפקדות החודשיות
+            let principalGrowth = principal * Math.pow(1 + monthlyRate, months);
+            let seriesGrowth = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate);
+            futureValue = principalGrowth + seriesGrowth;
+        }
 
+        let totalInterest = futureValue - totalInvested;
+
+        // פונקציית עזר לעיצוב המספרים כמטבע
+        const formatCurrency = (num) => {
+            return Math.round(num).toLocaleString('he-IL') + " ₪";
+        };
+
+        // הצגת התוצאה
+        let resultDiv = document.getElementById('result');
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `
+            <strong>הסכום הצפוי לאחר ${years} שנים:</strong><br>
+            <span style="font-size: 2rem; color: var(--accent); font-weight: bold;">${formatCurrency(futureValue)}</span><br><br>
+            <div style="font-size: 1rem; color: var(--primary);">
+                <strong>סך ההפקדות שלך:</strong> ${formatCurrency(totalInvested)}<br>
+                <strong>רווח נקי מריבית:</strong> ${formatCurrency(totalInterest)}
+            </div>
+        `;
+    }
+</script>
+
+</body>
+</html>
