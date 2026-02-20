@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון טריגונומטריה וערכים מדויקים - כלכלי וקל</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --sin-clr: #ef4444;
+            --cos-clr: #10b981;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text-muted: #4a5568;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: var(--primary);
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            -webkit-text-fill-color: white;
+        }
+
+        nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+            background-color: #f0f7ff;
+        }
+
+        /* --- Calculator Layout --- */
+        .main-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1;
+            min-width: 320px;
+            border: 1px solid #eee;
+        }
+
+        h2 { margin-bottom: 25px; color: var(--primary); font-size: 1.5rem; }
+
+        input[type="number"] {
+            width: 120px;
+            padding: 12px;
+            font-size: 1.5rem;
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            text-align: center;
+            outline: none;
+            background: #f8fafc;
+        }
+
+        .rad-display {
+            font-size: 2rem;
+            margin: 25px 0;
+            color: var(--secondary);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .res-box {
+            padding: 15px;
+            border-radius: 14px;
+            background: white;
+            border: 2px solid #f1f5f9;
+        }
+
+        .res-box small { display: block; font-weight: bold; color: #64748b; margin-bottom: 5px; }
+        .res-val { font-size: 1.2rem; display: block; margin-bottom: 5px; }
+
+        canvas {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* --- Affiliate Banner --- */
+        .affiliate-banner {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            border: 2px dashed var(--secondary);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .affiliate-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a { text-decoration: none; color: #4a5568; font-weight: 600; }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092090861249134"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-container">
+        <div class="logo-text">
+            <span class="logo-icon">📈</span>
+            כלכלי וקל
+        </div>
+    </a>
+    <nav>
+        <a href="index.html">בית</a>
+        <a href="articles.html">מאמרים</a>
+        <a href="benefits.html">הטבות</a>
+    </nav>
+</header>
+
+<h1 style="text-align: center; color: var(--primary);">מחשבון טריגונומטריה מדויק</h1>
+
+<div class="main-container">
+    <div class="card">
+        <h2>חישוב וערכים מדויקים</h2>
+        <label>זווית במעלות:</label><br><br>
+        <input type="number" id="degInput" value="60" step="1">
+        
+        <div id="radOutput" class="rad-display">$$\frac{\pi}{3}$$</div>
+        
+        <div class="results-grid">
+            <div class="res-box" style="border-bottom: 5px solid var(--sin-clr)">
+                <small>סינוס (Sin)</small>
+                <span id="sVal" class="res-val">0.866</span>
+                <div id="sFrac">$$\frac{\sqrt{3}}{2}$$</div>
+            </div>
+            <div class="res-box" style="border-bottom: 5px solid var(--cos-clr)">
+                <small>קוסינוס (Cos)</small>
+                <span id="cVal" class="res-val">0.500</span>
+                <div id="cFrac">$$\frac{1}{2}$$</div>
+            </div>
+            <div class="res-box" style="border-bottom: 5px solid #94a3b8">
+                <small>טנגנס (Tan)</small>
+                <span id="tVal" class="res-val">1.732</span>
+                <div id="tFrac">$$\sqrt{3}$$</div>
+            </div>
+            <div class="res-box" style="border-bottom: 5px solid #94a3b8">
+                <small>קוטנגנס (Cot)</small>
+                <span id="ctVal" class="res-val">0.577</span>
+                <div id="ctFrac">$$\frac{\sqrt{3}}{3}$$</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>מעגל היחידה</h2>
+        <canvas id="unitCircle" width="360" height="360"></canvas>
+        <p style="margin-top: 15px; color: #64748b;">
+            <span style="color: var(--cos-clr); font-weight: bold;">קוסינוס (x)</span> | 
+            <span style="color: var(--sin-clr); font-weight: bold;">סינוס (y)</span>
+        </p>
+    </div>
+</div>
+
+<div class="affiliate-banner">
+    <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
+    <p>רוצים להתחיל להשקיע? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
+    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
+</div>
+
+<footer>
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <div class="footer-links">
+        <a href="terms.html">תנאי שימוש</a>
+        <a href="privacy.html">מדיניות פרטיות</a>
+        <a href="about.html">אודות האתר</a>
+    </div>
+</footer>
+
+<script>
+    // לוגיקה למחשבון וציור המעגל
+    const circleCtx = document.getElementById('unitCircle').getContext('2d');
+    const input = document.getElementById('degInput');
+
+    const specialValues = {
+        sin: { 0: "0", 30: "\\frac{1}{2}", 45: "\\frac{\\sqrt{2}}{2}", 60: "\\frac{\\sqrt{3}}{2}", 90: "1", 120: "\\frac{\\sqrt{3}}{2}", 135: "\\frac{\\sqrt{2}}{2}", 150: "\\frac{1}{2}", 180: "0", 210: "-\\frac{1}{2}", 225: "-\\frac{\\sqrt{2}}{2}", 240: "-\\frac{\\sqrt{3}}{2}", 270: "-1", 300: "-\\frac{\\sqrt{3}}{2}", 315: "-\\frac{\\sqrt{2}}{2}", 330: "-\\frac{1}{2}" },
+        cos: { 0: "1", 30: "\\frac{\\sqrt{3}}{2}", 45: "\\frac{\\sqrt{2}}{2}", 60: "\\frac{1}{2}", 90: "0", 120: "-\\frac{1}{2}", 135: "-\\frac{\\sqrt{2}}{2}", 150: "-\\frac{\\sqrt{3}}{2}", 180: "-1", 210: "-\\frac{\\sqrt{3}}{2}", 225: "-\\frac{\\sqrt{2}}{2}", 240: "-\\frac{1}{2}", 270: "0", 300: "\\frac{1}{2}", 315: "\\frac{\\sqrt{2}}{2}", 330: "\\frac{\\sqrt{3}}{2}" },
+        tan: { 0: "0", 30: "\\frac{\\sqrt{3}}{3}", 45: "1", 60: "\\sqrt{3}", 90: "\\infty", 120: "-\\sqrt{3}", 135: "-1", 150: "-\\frac{\\sqrt{3}}{3}", 180: "0" },
+        cot: { 0: "\\infty", 30: "\\sqrt{3}", 45: "1", 60: "\\frac{\\sqrt{3}}{3}", 90: "0" }
+    };
+
+    function getExact(type, deg) {
+        let nDeg = ((deg % 360) + 360) % 360;
+        return specialValues[type][nDeg] ? `$$${specialValues[type][nDeg]}$$` : "--";
+    }
+
+    function getGCD(a, b) { return b ? getGCD(b, a % b) : a; }
+
+    function formatRadian(deg) {
+        let nDeg = ((deg % 360) + 360) % 360;
+        if (nDeg === 0) return "0";
+        let div = getGCD(nDeg, 180);
+        let n = nDeg / div, d = 180 / div;
+        return `\\frac{${n === 1 ? "" : n}\\pi}{${d === 1 ? "" : d}}`.replace("/}", "}");
+    }
+
+    function update() {
+        const deg = parseFloat(input.value) || 0;
+        const rad = deg * Math.PI / 180;
+        const s = Math.sin(rad), c = Math.cos(rad);
+
+        document.getElementById('sVal').innerText = s.toFixed(3);
+        document.getElementById('cVal').innerText = c.toFixed(3);
+        document.getElementById('tVal').innerText = Math.abs(c) < 0.001 ? "∞" : (s/c).toFixed(3);
+        document.getElementById('ctVal').innerText = Math.abs(s) < 0.001 ? "∞" : (c/s).toFixed(3);
+
+        document.getElementById('sFrac').innerHTML = getExact('sin', deg);
+        document.getElementById('cFrac').innerHTML = getExact('cos', deg);
+        document.getElementById('tFrac').innerHTML = getExact('tan', deg);
+        document.getElementById('ctFrac').innerHTML = getExact('cot', deg);
+        document.getElementById('radOutput').innerHTML = `$$${formatRadian(deg)}$$`;
+
+        if (window.MathJax) MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        drawCircle(rad, s, c);
+    }
+
+    function drawCircle(rad, s, c) {
+        const ctx = circleCtx;
+        ctx.clearRect(0,0,360,360);
+        const cx = 180, cy = 180, r = 140;
+        ctx.strokeStyle = "#e2e8f0"; ctx.setLineDash([4,4]);
+        ctx.beginPath(); ctx.moveTo(0,180); ctx.lineTo(360,180); ctx.moveTo(180,0); ctx.lineTo(180,360); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.strokeStyle = "#94a3b8"; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.stroke();
+
+        const tx = cx + c*r, ty = cy - s*r;
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "#10b981"; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, cy); ctx.stroke();
+        ctx.strokeStyle = "#ef4444"; ctx.beginPath(); ctx.moveTo(tx, cy); ctx.lineTo(tx, ty); ctx.stroke();
+        ctx.strokeStyle = "#4f46e5"; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(tx, ty); ctx.stroke();
+        ctx.fillStyle = "#1e293b"; ctx.beginPath(); ctx.arc(tx, ty, 8, 0, 7); ctx.fill();
+    }
+
+    input.addEventListener('input', update);
+    update();
+</script>
+
+</body>
+</html>
