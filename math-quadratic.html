@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון משוואה ריבועית - כלכלי וקל</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text-muted: #4a5568;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: var(--primary); }
+
+        header { background-color: var(--white); padding: 25px 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-bottom: 4px solid var(--secondary); margin-bottom: 30px; }
+        .logo-text { font-size: 2.2rem; font-weight: 900; margin: 0; display: flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; color: var(--primary); }
+        .logo-icon { background: var(--secondary); color: white; padding: 5px 12px; border-radius: 10px; }
+
+        .calc-container { max-width: 700px; margin: 40px auto; background: white; padding: 35px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        .formula-box { text-align: center; background: #f8fafc; padding: 15px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #e2e8f0; font-size: 1.2rem; }
+
+        .equation-inputs { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 30px; direction: ltr; font-size: 1.4rem; font-weight: bold; }
+        input[type="number"] { width: 85px; padding: 12px; border: 2px solid #eee; border-radius: 10px; text-align: center; font-size: 1.2rem; }
+        input:focus { border-color: var(--secondary); outline: none; }
+
+        button { width: 100%; background: var(--secondary); color: white; padding: 15px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #2980b9; }
+
+        .result { margin-top: 25px; padding: 25px; background: #f0f9ff; border-radius: 12px; font-size: 1.1rem; display: none; border: 1px solid var(--secondary); line-height: 1.8; }
+        .method-section { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #d1e9ff; }
+        .method-title { color: var(--secondary); font-weight: bold; font-size: 1.3rem; margin-bottom: 10px; display: block; }
+
+        footer { background: white; padding: 40px 20px; text-align: center; margin-top: 60px; border-top: 1px solid #eee; color: #888; font-size: 0.9rem; }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092090861249134" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo-text">
+        <span class="logo-icon">📈</span> כלכלי וקל
+    </a>
+</header>
+
+<div class="calc-container">
+    <h2 style="text-align: center; margin-bottom: 10px;">פתרון משוואה ריבועית</h2>
+    <div class="formula-box">$$ ax^2 + bx + c = 0 $$</div>
+
+    <div class="equation-inputs">
+        <input type="number" id="valA" value="1"> <span>x² + </span>
+        <input type="number" id="valB" value="-5"> <span>x + </span>
+        <input type="number" id="valC" value="6"> <span>= 0</span>
+    </div>
+    
+    <button onclick="solveQuadratic()">חשב דרך פתרון מלאה</button>
+    
+    <div id="result" class="result"></div>
+</div>
+
+<footer>
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+</footer>
+
+<script>
+    function solveQuadratic() {
+        const a = parseFloat(document.getElementById('valA').value);
+        const b = parseFloat(document.getElementById('valB').value) || 0;
+        const c = parseFloat(document.getElementById('valC').value) || 0;
+        const resDiv = document.getElementById('result');
+
+        if (isNaN(a) || a === 0) {
+            resDiv.style.display = "block";
+            resDiv.innerHTML = "הערך של a חייב להיות שונה מ-0.";
+            return;
+        }
+
+        const delta = (b * b) - (4 * a * c);
+        let html = "";
+
+        // דרך א': נוסחת השורשים
+        html += `<div class="method-section">`;
+        html += `<span class="method-title">דרך א': נוסחת השורשים (דיסקרימיננטה)</span>`;
+        html += `נחשב תחילה את הדלתא: <br>`;
+        html += `$$ \\Delta = b^2 - 4ac = (${b})^2 - 4 \\cdot ${a} \\cdot ${c} = ${delta} $$`;
+
+        if (delta < 0) {
+            html += `מאחר והדלתא קטנה מ-0, אין פתרונות ממשיים למשוואה.`;
+        } else {
+            const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            html += `נציב בנוסחת השורשים: $$ x_{1,2} = \\frac{-b \\pm \\sqrt{\\Delta}}{2a} $$`;
+            html += `התוצאות: <b>x₁ = ${x1.toFixed(2)}</b> , <b>x₂ = ${x2.toFixed(2)}</b>`;
+        }
+        html += `</div>`;
+
+        // דרך ב': טרינום
+        if (delta >= 0 && Number.isInteger(Math.sqrt(delta))) {
+            const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+            const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+            const m = -x1;
+            const n = -x2;
+
+            html += `<div class="method-section" style="border-bottom: none;">`;
+            html += `<span class="method-title">דרך ב': פירוק למכפלה (טרינום)</span>`;
+            html += `נחפש שני מספרים שסכומם הוא ` + (b/a).toFixed(2) + ` ומכפלתם היא ` + (c/a).toFixed(2) + `. <br>`;
+            html += `המספרים הם: <b>` + m + `</b> ו-<b>` + n + `</b>. <br>`;
+            
+            let factorStr = "";
+            if (a !== 1) factorStr += a;
+            factorStr += `(x ${m >= 0 ? "+" : "-"} ${Math.abs(m)})(x ${n >= 0 ? "+" : "-"} ${Math.abs(n)}) = 0`;
+            
+            html += `$$ ${factorStr} $$`;
+            html += `הפתרונות: <b>x₁ = ${x1}</b>, <b>x₂ = ${x2}</b>`;
+            html += `</div>`;
+        }
+
+        resDiv.style.display = "block";
+        resDiv.innerHTML = html;
+
+        if (window.MathJax) {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, "result"]);
+        }
+    }
+</script>
+
+</body>
+</html>
