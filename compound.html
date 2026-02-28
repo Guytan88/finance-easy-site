@@ -146,7 +146,6 @@
             margin-top: 15px;
         }
 
-        /* עיצוב לאזור ה-SEO החדש */
         .seo-article {
             max-width: 900px;
             margin: 0 auto 40px auto;
@@ -156,11 +155,18 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             line-height: 1.6;
         }
+
+        .compound-interest-box {
+            background-color: #f8fafc;
+            border-right: 5px solid var(--secondary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
         
         .seo-article h2 { color: var(--secondary); margin-top: 0; margin-bottom: 15px; font-size: 1.5rem; }
         .seo-article h3 { color: var(--primary); margin-top: 25px; font-size: 1.2rem; }
-        .seo-article p, .seo-article ul { color: var(--text-muted); font-size: 1.05rem; }
-        .seo-article li { margin-bottom: 10px; }
+        .seo-article p { color: var(--text-muted); font-size: 1.05rem; }
 
         footer {
             background: white;
@@ -177,18 +183,11 @@
             font-size: 0.9rem;
         }
 
-        .footer-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
+        .footer-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; }
+        .footer-links a:hover { color: var(--secondary); }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092090861249134"
-     crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -211,58 +210,25 @@
     
     <div class="section-title">נתוני הנכס והרכישה</div>
     <div class="grid-inputs">
-        <div class="input-group">
-            <label>מחיר הדירה (₪)</label>
-            <input type="number" id="homePrice" value="2500000">
-        </div>
-        <div class="input-group">
-            <label>הון עצמי זמין (₪)</label>
-            <input type="number" id="equity" value="800000">
-        </div>
-        <div class="input-group">
-            <label>הוצאות רכישה (₪)</label>
-            <input type="number" id="buyCosts" value="100000">
-        </div>
-        <div class="input-group">
-            <label>עליית ערך דירה שנתית (%)</label>
-            <input type="number" id="appRate" value="3.0" step="0.1">
-        </div>
+        <div class="input-group"><label>מחיר הדירה (₪)</label><input type="number" id="homePrice" value="2500000"></div>
+        <div class="input-group"><label>הון עצמי זמין (₪)</label><input type="number" id="equity" value="800000"></div>
+        <div class="input-group"><label>הוצאות רכישה (₪)</label><input type="number" id="buyCosts" value="100000"></div>
+        <div class="input-group"><label>עליית ערך דירה שנתית (%)</label><input type="number" id="appRate" value="3.0" step="0.1"></div>
     </div>
 
     <div class="section-title">נתוני משכנתא ותחזוקה</div>
     <div class="grid-inputs">
-        <div class="input-group">
-            <label>תקופת משכנתא (שנים)</label>
-            <input type="number" id="mortgageYears" value="25">
-        </div>
-        <div class="input-group">
-            <label>ריבית משכנתא שנתית (%)</label>
-            <input type="number" id="mortgageRate" value="4.8" step="0.1">
-        </div>
-        <div class="input-group">
-            <label>ביטוח ותחזוקה חודשית (₪)</label>
-            <input type="number" id="monthlyMaintenance" value="400">
-        </div>
+        <div class="input-group"><label>תקופת משכנתא (שנים)</label><input type="number" id="mortgageYears" value="25"></div>
+        <div class="input-group"><label>ריבית משכנתא שנתית (%)</label><input type="number" id="mortgageRate" value="4.8" step="0.1"></div>
+        <div class="input-group"><label>ביטוח ותחזוקה חודשית (₪)</label><input type="number" id="monthlyMaintenance" value="400"></div>
     </div>
 
     <div class="section-title">נתוני שכירות והשקעה</div>
     <div class="grid-inputs">
-        <div class="input-group">
-            <label>שכירות חודשית (₪)</label>
-            <input type="number" id="rentPrice" value="6500">
-        </div>
-        <div class="input-group">
-            <label>עליית שכירות שנתית (%)</label>
-            <input type="number" id="rentIncRate" value="2.0" step="0.1">
-        </div>
-        <div class="input-group">
-            <label>תשואה בשוק ההון (%)</label>
-            <input type="number" id="stockRate" value="7.0" step="0.1">
-        </div>
-        <div class="input-group">
-            <label>תקופת בדיקה (שנים)</label>
-            <input type="number" id="testYears" value="25">
-        </div>
+        <div class="input-group"><label>שכירות חודשית (₪)</label><input type="number" id="rentPrice" value="6500"></div>
+        <div class="input-group"><label>עליית שכירות שנתית (%)</label><input type="number" id="rentIncRate" value="2.0" step="0.1"></div>
+        <div class="input-group"><label>תשואה בשוק ההון (%)</label><input type="number" id="stockRate" value="7.0" step="0.1"></div>
+        <div class="input-group"><label>תקופת בדיקה (שנים)</label><input type="number" id="testYears" value="25"></div>
     </div>
     
     <button onclick="calculateAdvancedComparison()">חשב ונתח מסלולים</button>
@@ -271,21 +237,13 @@
         <div class="res-card res-buy">
             <h3>מסלול רכישה</h3>
             <div class="big-number" id="buyResult">₪0</div>
-            <div class="breakdown">
-                שווי נכס עתידי: <span id="outHomeFinal"></span> ₪<br>
-                יתרת משכנתא: <span id="outRemainingLoan"></span> ₪
-            </div>
+            <div class="breakdown">שווי נכס עתידי: <span id="outHomeFinal"></span> ₪<br>יתרת משכנתא: <span id="outRemainingLoan"></span> ₪</div>
         </div>
-        
         <div class="res-card res-rent">
             <h3>מסלול שכירות</h3>
             <div class="big-number" id="rentResult">₪0</div>
-            <div class="breakdown">
-                הון מהשקעות: <span id="outRentFinal"></span> ₪<br>
-                סה"כ שכירות ששולמה: <span id="outTotalRent"></span> ₪
-            </div>
+            <div class="breakdown">הון מהשקעות: <span id="outRentFinal"></span> ₪<br>סה"כ שכירות ששולמה: <span id="outTotalRent"></span> ₪</div>
         </div>
-        
         <div id="verdict" class="verdict"></div>
     </div>
 </div>
@@ -297,28 +255,27 @@
 </div>
 
 <div class="seo-article">
-    <h2>לקנות דירה או לגור בשכירות ולהשקיע? הדילמה הכלכלית הגדולה</h2>
-    <p>
-        אחת השאלות הכלכליות המשמעותיות ביותר של ימינו היא האם לקחת משכנתא ולרכוש דירה למגורים, או שמא עדיף לגור בשכירות ולהשקיע את ההון העצמי בשוק ההון (למשל במדד S&P 500 או דרך קופת גמל להשקעה). <strong>מחשבון קנייה מול שכירות</strong> שלנו נועד לעשות סדר במספרים ולהציג לכם תמונה צלולה ומלאה לטווח הארוך.
-    </p>
+    <h2>הבנת המנגנון: ריבית דריבית במחשבון קנייה מול שכירות</h2>
     
-    <h3>איך מחשבון משכנתא מול שכירות עובד?</h3>
-    <p>
-        המודל הפיננסי שלנו משווה במקביל בין שני מסלולים מרכזיים:
-    </p>
-    <ul>
-        <li><strong>מסלול רכישת דירה:</strong> שימוש בהון העצמי הזמין ולקיחת הלוואת משכנתא. המחשבון משקלל את עליית ערך הנכס השנתית, תשלומי הריבית, הוצאות הרכישה והתחזוקה, ומקזז לבסוף את יתרת המשכנתא כדי להציג את השווי הנקי האמיתי שלכם בסוף התקופה.</li>
-        <li><strong>מסלול שכירות והשקעה:</strong> תשלום שכר דירה חודשי (כולל תחזית לעליית מחירי השכירות מדי שנה) והשקעת ההון העצמי ההתחלתי. בנוסף, אם תשלום השכירות נמוך מההחזר החודשי על המשכנתא, המחשבון מניח שאתם משקיעים את ההפרש בבורסה בכל חודש ונהנים מאפקט הריבית דריבית.</li>
-    </ul>
+    <div class="compound-interest-box">
+        <h3>מהי ריבית דריבית? "הפלא השמיני של התבל"</h3>
+        <p>
+            ריבית דריבית היא המצב שבו הרווחים שהכסף שלכם מייצר מתחילים לייצר רווחים בעצמם. במקום לקבל ריבית רק על סכום ההפקדה המקורי (הקרן), אתם מקבלים ריבית על <strong>הסכום החדש</strong> שנוצר, הכולל את רווחי העבר.
+        </p>
+        <p>
+            הנוסחה המתמטית שמניעה את חישובי ההשקעה במחשבון היא:
+            $$A = P(1 + r)^n$$
+            כאשר $A$ הוא הסכום הסופי, $P$ הקרן המקורית, $r$ שיעור הריבית ו-$n$ מספר תקופות הזמן.
+        </p>
+    </div>
 
-    <h3>החשיבות הפיננסית של עלות הזדמנות</h3>
+    <h3>איך זה בא לידי ביטוי בתוצאות המחשבון?</h3>
     <p>
-        כשמבצעים השוואה של <strong>קניית דירה מול שכירות</strong>, חשוב להבין את המושג "עלות הזדמנות". הכסף שאתם משלמים כהון עצמי לדירה הוא כסף שלא עובד עבורכם בבורסה. מצד שני, הדירה שאתם קונים פוטרת אתכם מתשלום שכירות עתידי שהולך וגדל. המחשבון שלנו לוקח בחשבון את הדינמיקה הזו ומציג לכם איפה תהיו בעוד 25 שנה מבחינת עושר נקי.
+        במסלול ה"שכירות והשקעה", המחשבון לא רק בודק כמה כסף חסכתם, אלא מניח שההון העצמי שלכם מושקע בשוק ההון. 
+        בכל שנה, אתם מרוויחים תשואה גם על ההון המקורי וגם על כל התשואה שנצברה בשנים הקודמות. 
     </p>
-
-    <h3>למה חשוב לבדוק את הנתונים מראש?</h3>
     <p>
-        רבים נוטים לחשוב אוטומטית כי "שכירות היא כסף שנזרק לפח", אך כשמכניסים למשוואה את סביבת הריבית, המדד, הוצאות הרישוי והפוטנציאל של שוק ההון לייצר תשואה עודפת – התמונה עשויה להתהפך לחלוטין. בעזרת המחשבון המדויק, תוכלו להזין את הנתונים האישיים שלכם ולגלות איזה מסלול ייצר עבורכם שווי נקי גבוה יותר בעתיד.
+        בניגוד לעליית ערך הנדל"ן שהיא לרוב ליניארית יותר, הריבית דריבית היא **מעריכית**. ככל שטווח הזמן (שנות הבדיקה) ארוך יותר, כך "כדור השלג" הפיננסי גדל. זו הסיבה שבתקופות של 25-30 שנה, מסלול השכירות וההשקעה עשוי להציג שווי נקי גבוה משמעותית, למרות תשלום השכירות החודשי.
     </p>
 </div>
 
@@ -357,11 +314,9 @@
         for (let i = 1; i <= totalMonths; i++) {
             if (i > 1 && (i - 1) % 12 === 0) currentRent *= (1 + rentIncRate);
             totalRentPaid += currentRent;
-
             let actualMortgagePmt = (i <= mortgageYears * 12) ? monthlyMortgage : 0;
             let monthlyDiff = (actualMortgagePmt + monthlyMaintenance) - currentRent;
             rentInvestment = rentInvestment * (1 + sRate) + monthlyDiff;
-
             if (currentLoanBalance > 0 && i <= mortgageYears * 12) {
                 currentLoanBalance -= (actualMortgagePmt - (currentLoanBalance * mRate));
             }
@@ -377,11 +332,9 @@
         document.getElementById('outRemainingLoan').innerText = Math.round(Math.max(0, currentLoanBalance)).toLocaleString();
         document.getElementById('outTotalRent').innerText = Math.round(totalRentPaid).toLocaleString();
 
-        const diff = Math.abs(buyNet - rentInvestment);
         const winner = buyNet > rentInvestment ? "רכישת דירה" : "שכירות והשקעה";
-        document.getElementById('verdict').innerHTML = `מסקנה: מסלול ה${winner} מניב יותר ב-₪${Math.round(diff).toLocaleString()}`;
+        document.getElementById('verdict').innerHTML = `מסקנה: מסלול ה${winner} מניב יותר ב-₪${Math.round(Math.abs(buyNet - rentInvestment)).toLocaleString()}`;
     }
 </script>
-
 </body>
 </html>
