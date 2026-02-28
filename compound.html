@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מחשבון קנייה מול שכירות המלא - כלכלי וקל</title>
+    <title>מחשבון ריבית דריבית - כלכלי וקל</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -27,7 +27,7 @@
             padding: 25px 20px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-bottom: 4px solid var(--secondary);
+            border-bottom: 4px solid var(--accent);
             margin-bottom: 30px;
         }
 
@@ -36,19 +36,19 @@
             font-size: 2.2rem;
             font-weight: 900;
             margin: 0;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #27ae60 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex; align-items: center; justify-content: center; gap: 12px;
         }
-        .logo-icon { background: var(--secondary); color: white; padding: 5px 12px; border-radius: 10px; font-size: 1.6rem; -webkit-text-fill-color: white; }
+        .logo-icon { background: var(--accent); color: white; padding: 5px 12px; border-radius: 10px; font-size: 1.6rem; -webkit-text-fill-color: white; }
 
         nav { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
         nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: 0.3s; }
-        nav a:hover { color: var(--secondary); background-color: #f0f7ff; }
+        nav a:hover { color: var(--accent); background-color: #f0fff4; }
 
         .calc-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 40px auto;
             background: white;
             padding: 35px;
@@ -58,7 +58,7 @@
 
         .section-title {
             font-size: 1.2rem;
-            color: var(--secondary);
+            color: var(--accent);
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
             margin: 25px 0 15px 0;
@@ -66,7 +66,7 @@
 
         .grid-inputs {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
 
@@ -74,7 +74,7 @@
         label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 2px solid #eee;
             border-radius: 8px;
             box-sizing: border-box;
@@ -82,7 +82,7 @@
 
         button {
             width: 100%;
-            background: var(--secondary);
+            background: var(--accent);
             color: white;
             padding: 18px;
             border: none;
@@ -91,68 +91,45 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 30px;
+            transition: transform 0.2s;
         }
+        button:hover { transform: scale(1.01); opacity: 0.9; }
 
         .results-area {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            margin-top: 35px;
             display: none;
         }
 
         .res-card {
-            padding: 25px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
-            border: 2px solid #eee;
+            border: 2px solid var(--accent);
+            background: #f0fff4;
         }
 
-        .res-buy { background: #eef7ff; border-color: var(--secondary); }
-        .res-rent { background: #f0fff4; border-color: var(--accent); }
-
-        .big-number { font-size: 2rem; font-weight: bold; margin: 15px 0; }
-        .breakdown { font-size: 0.9rem; color: #555; line-height: 1.6; text-align: right; background: rgba(255,255,255,0.6); padding: 10px; border-radius: 8px; }
-
-        .verdict {
-            grid-column: span 2;
-            padding: 20px;
-            background: #fff9c4;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 1.3rem;
-            margin-top: 10px;
-            border: 2px dashed #f1c40f;
+        .big-number { font-size: 2.5rem; font-weight: bold; color: var(--accent); margin: 15px 0; }
+        
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .affiliate-banner {
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            border: 2px dashed var(--secondary);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 40px auto;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        .affiliate-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 14px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
+        .breakdown-item {
+            background: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.95rem;
         }
 
         .seo-article {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto 40px auto;
             padding: 35px;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             line-height: 1.6;
         }
 
@@ -163,30 +140,10 @@
             margin: 25px 0;
             border-radius: 8px;
         }
-        
-        .seo-article h2 { color: var(--secondary); margin-top: 0; margin-bottom: 15px; font-size: 1.5rem; }
-        .seo-article h3 { color: var(--primary); margin-top: 25px; font-size: 1.2rem; }
-        .seo-article h4 { color: var(--primary); margin-bottom: 10px; }
-        .seo-article p { color: var(--text-muted); font-size: 1.05rem; }
-        .seo-article ul { color: var(--text-muted); }
 
-        footer {
-            background: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; }
-        .footer-links a:hover { color: var(--secondary); }
+        footer { text-align: center; padding: 40px; background: white; border-top: 1px solid #eee; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
+        .footer-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -194,7 +151,7 @@
 <header>
     <a href="index.html" class="logo-container">
         <div class="logo-text">
-            <span class="logo-icon">🏢</span>
+            <span class="logo-icon">📈</span>
             כלכלי וקל
         </div>
     </a>
@@ -206,75 +163,67 @@
 </header>
 
 <div class="calc-container">
-    <h2 style="text-align: center;">מחשבון קנייה מול שכירות - המודל המלא</h2>
+    <h2 style="text-align: center;">מחשבון ריבית דריבית - כוחו של זמן</h2>
     
-    <div class="section-title">נתוני הנכס והרכישה</div>
+    <div class="section-title">הגדרות השקעה</div>
     <div class="grid-inputs">
-        <div class="input-group"><label>מחיר הדירה (₪)</label><input type="number" id="homePrice" value="2500000"></div>
-        <div class="input-group"><label>הון עצמי זמין (₪)</label><input type="number" id="equity" value="800000"></div>
-        <div class="input-group"><label>הוצאות רכישה (₪)</label><input type="number" id="buyCosts" value="100000"></div>
-        <div class="input-group"><label>עליית ערך דירה שנתית (%)</label><input type="number" id="appRate" value="3.0" step="0.1"></div>
-    </div>
-
-    <div class="section-title">נתוני משכנתא ותחזוקה</div>
-    <div class="grid-inputs">
-        <div class="input-group"><label>תקופת משכנתא (שנים)</label><input type="number" id="mortgageYears" value="25"></div>
-        <div class="input-group"><label>ריבית משכנתא שנתית (%)</label><input type="number" id="mortgageRate" value="4.8" step="0.1"></div>
-        <div class="input-group"><label>ביטוח ותחזוקה חודשית (₪)</label><input type="number" id="monthlyMaintenance" value="400"></div>
-    </div>
-
-    <div class="section-title">נתוני שכירות והשקעה</div>
-    <div class="grid-inputs">
-        <div class="input-group"><label>שכירות חודשית (₪)</label><input type="number" id="rentPrice" value="6500"></div>
-        <div class="input-group"><label>עליית שכירות שנתית (%)</label><input type="number" id="rentIncRate" value="2.0" step="0.1"></div>
-        <div class="input-group"><label>תשואה בשוק ההון (%)</label><input type="number" id="stockRate" value="7.0" step="0.1"></div>
-        <div class="input-group"><label>תקופת בדיקה (שנים)</label><input type="number" id="testYears" value="25"></div>
+        <div class="input-group">
+            <label>סכום התחלתי (₪)</label>
+            <input type="number" id="principal" value="50000">
+        </div>
+        <div class="input-group">
+            <label>הפקדה חודשית (₪)</label>
+            <input type="number" id="monthly" value="2000">
+        </div>
+        <div class="input-group">
+            <label>תקופת זמן (שנים)</label>
+            <input type="number" id="years" value="20">
+        </div>
+        <div class="input-group">
+            <label>ריבית שנתית צפויה (%)</label>
+            <input type="number" id="rate" value="7.0" step="0.1">
+        </div>
     </div>
     
-    <button onclick="calculateAdvancedComparison()">חשב ונתח מסלולים</button>
+    <button onclick="calculateCompoundInterest()">חשב צמיחת הון</button>
 
     <div id="results" class="results-area">
-        <div class="res-card res-buy">
-            <h3>מסלול רכישה</h3>
-            <div class="big-number" id="buyResult">₪0</div>
-            <div class="breakdown">שווי נכס עתידי: <span id="outHomeFinal"></span> ₪<br>יתרת משכנתא: <span id="outRemainingLoan"></span> ₪</div>
+        <div class="res-card">
+            <h3>ההון הצבור בסוף התקופה</h3>
+            <div class="big-number" id="totalValue">₪0</div>
+            
+            <div class="breakdown-grid">
+                <div class="breakdown-item">
+                    <strong>סך ההפקדות:</strong><br>
+                    <span id="totalDeposits"></span> ₪
+                </div>
+                <div class="breakdown-item">
+                    <strong>רווח מריבית:</strong><br>
+                    <span id="totalInterest"></span> ₪
+                </div>
+            </div>
         </div>
-        <div class="res-card res-rent">
-            <h3>מסלול שכירות</h3>
-            <div class="big-number" id="rentResult">₪0</div>
-            <div class="breakdown">הון מהשקעות: <span id="outRentFinal"></span> ₪<br>סה"כ שכירות ששולמה: <span id="outTotalRent"></span> ₪</div>
-        </div>
-        <div id="verdict" class="verdict"></div>
     </div>
-</div>
-
-<div class="affiliate-banner">
-    <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
-    <p>בוחרים להשקיע את ההון שלכם במקום לקנות? קבלו תנאים בלעדיים ודמי ניהול מופחתים באקסלנס.</p>
-    <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">קבלת ההטבה</a>
 </div>
 
 <div class="seo-article">
-   
-
     <div class="concept-box">
         <h3>מהי ריבית דריבית? "הפלא השמיני של התבל"</h3>
         <p>
-            ריבית דריבית היא המנגנון העוצמתי ביותר בעולם הכסף. ברוב המקרים כשאנחנו חושבים על רווח, אנחנו חושבים על "ריבית רגילה" – כלומר, רווח קבוע על הסכום שהפקדנו. ריבית דריבית לוקחת את זה צעד אחד קדימה: זהו מצב שבו אתם מקבלים ריבית לא רק על הכסף המקורי שלכם, אלא גם על הרווחים שהצטברו לאורך הדרך.
+            ריבית דריבית היא המנגנון העוצמתי ביותר בעולם הכסף. בניגוד לריבית רגילה, כאן אתם מקבלים תשואה לא רק על הכסף המקורי שלכם, אלא גם על הרווחים שנצברו. 
         </p>
-        <p><strong>במילים פשוטות: זהו מצב שבו הכסף שלכם מייצר כסף, שבתורו מייצר עוד כסף.</strong></p>
         
+        
+
         <h4>איך זה עובד בפועל? (משל כדור השלג)</h4>
         <p>
-            דמיינו כדור שלג קטן שמתחיל להתגלגל מראש הר מושלג. ככל שהוא מתגלגל למטה, הוא אוסף עוד שלג. השלג החדש שנדבק אליו הופך לחלק בלתי נפרד מהכדור, ובסיבוב הבא – בזכות העובדה שהכדור גדל – הוא מצליח לאסוף כמות גדולה עוד יותר של שלג.
+            דמיינו כדור שלג קטן שמתגלגל מראש הר. ככל שהוא יורד, הוא אוסף עוד שלג. השלג החדש הופך לחלק מהכדור, ובסיבוב הבא הכדור הגדול יותר אוסף כמות גדולה עוד יותר של שלג. 
         </p>
         <ul>
-            <li><strong>בשנה הראשונה:</strong> אתם מרוויחים ריבית על הסכום שהשקעתם.</li>
-            <li><strong>בשנה השנייה:</strong> הריבית מהשנה הראשונה מצטרפת לסכום המקורי, ועכשיו אתם מרוויחים ריבית על הסכום החדש והגדול יותר.</li>
-            <li><strong>לאורך זמן:</strong> ככל שעוברות השנים, "כדור השלג" הפיננסי שלכם הופך למפלצת של רווחים.</li>
+            <li><strong>סבלנות היא שם המשחק:</strong> בגרף הריבית דריבית, הקפיצה הגדולה ביותר קוראת תמיד בשליש האחרון של התקופה.</li>
+            <li><strong>התחלה מוקדמת:</strong> כל שנה שאתם מחכים מקטינה משמעותית את התוצאה הסופית.</li>
         </ul>
     </div>
-
 </div>
 
 <footer>
@@ -282,59 +231,32 @@
     <div class="footer-links">
         <a href="terms.html">תנאי שימוש</a>
         <a href="privacy.html">מדיניות פרטיות</a>
-        <a href="about.html">אודות האתר</a>
     </div>
 </footer>
 
 <script>
-    function calculateAdvancedComparison() {
-        const homePrice = parseFloat(document.getElementById('homePrice').value);
-        const equity = parseFloat(document.getElementById('equity').value);
-        const buyCosts = parseFloat(document.getElementById('buyCosts').value);
-        const monthlyMaintenance = parseFloat(document.getElementById('monthlyMaintenance').value);
-        const mortgageYears = parseInt(document.getElementById('mortgageYears').value);
-        const mRate = parseFloat(document.getElementById('mortgageRate').value) / 100 / 12;
-        const appRate = parseFloat(document.getElementById('appRate').value) / 100;
-        const rentPrice = parseFloat(document.getElementById('rentPrice').value);
-        const rentIncRate = parseFloat(document.getElementById('rentIncRate').value) / 100;
-        const sRate = Math.pow(1 + (parseFloat(document.getElementById('stockRate').value) / 100), 1/12) - 1;
-        const testYears = parseInt(document.getElementById('testYears').value);
-        const totalMonths = testYears * 12;
+    function calculateCompoundInterest() {
+        const p = parseFloat(document.getElementById('principal').value) || 0;
+        const pmt = parseFloat(document.getElementById('monthly').value) || 0;
+        const y = parseInt(document.getElementById('years').value) || 0;
+        const annualRate = parseFloat(document.getElementById('rate').value) / 100;
+        
+        const r = annualRate / 12; // ריבית חודשית
+        const n = y * 12; // מספר חודשים
 
-        let loanAmount = (homePrice + buyCosts) - equity;
-        let monthlyMortgage = (loanAmount * mRate * Math.pow(1 + mRate, mortgageYears * 12)) / (Math.pow(1 + mRate, mortgageYears * 12) - 1);
+        // חישוב ריבית דריבית על הקרן + סדרת הפקדות
+        const futureValuePrincipal = p * Math.pow(1 + r, n);
+        const futureValueSeries = pmt * ((Math.pow(1 + r, n) - 1) / r);
+        
+        const total = futureValuePrincipal + futureValueSeries;
+        const totalInvested = p + (pmt * n);
+        const interestEarned = total - totalInvested;
 
-        let currentLoanBalance = loanAmount;
-        let rentInvestment = equity;
-        let currentRent = rentPrice;
-        let totalRentPaid = 0;
-
-        for (let i = 1; i <= totalMonths; i++) {
-            if (i > 1 && (i - 1) % 12 === 0) currentRent *= (1 + rentIncRate);
-            totalRentPaid += currentRent;
-            let actualMortgagePmt = (i <= mortgageYears * 12) ? monthlyMortgage : 0;
-            let monthlyDiff = (actualMortgagePmt + monthlyMaintenance) - currentRent;
-            rentInvestment = rentInvestment * (1 + sRate) + monthlyDiff;
-            if (currentLoanBalance > 0 && i <= mortgageYears * 12) {
-                currentLoanBalance -= (actualMortgagePmt - (currentLoanBalance * mRate));
-            }
-        }
-
-        const finalHomeValue = homePrice * Math.pow(1 + appRate, testYears);
-        const buyNet = finalHomeValue - Math.max(0, currentLoanBalance);
-
-        document.getElementById('results').style.display = 'grid';
-        document.getElementById('buyResult').innerText = "₪" + Math.round(buyNet).toLocaleString();
-        document.getElementById('rentResult').innerText = "₪" + Math.round(rentInvestment).toLocaleString();
-        document.getElementById('outHomeFinal').innerText = Math.round(finalHomeValue).toLocaleString();
-        document.getElementById('outRemainingLoan').innerText = Math.round(Math.max(0, currentLoanBalance)).toLocaleString();
-        document.getElementById('outTotalRent').innerText = Math.round(totalRentPaid).toLocaleString();
-
-        const diff = Math.abs(buyNet - rentInvestment);
-        const winner = buyNet > rentInvestment ? "רכישת דירה" : "שכירות והשקעה";
-        document.getElementById('verdict').innerHTML = `מסקנה: מסלול ה${winner} מניב יותר ב-₪${Math.round(diff).toLocaleString()}`;
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('totalValue').innerText = "₪" + Math.round(total).toLocaleString();
+        document.getElementById('totalDeposits').innerText = Math.round(totalInvested).toLocaleString();
+        document.getElementById('totalInterest').innerText = Math.round(interestEarned).toLocaleString();
     }
 </script>
 </body>
 </html>
-
