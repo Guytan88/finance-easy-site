@@ -22,7 +22,6 @@
             color: var(--primary);
         }
 
-        /* --- Header & Logo Section --- */
         header {
             background-color: var(--white);
             padding: 25px 20px;
@@ -32,12 +31,7 @@
             margin-bottom: 30px;
         }
 
-        .logo-container {
-            display: inline-block;
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-
+        .logo-container { display: inline-block; text-decoration: none; transition: transform 0.2s ease; }
         .logo-text {
             font-size: 2.2rem;
             font-weight: 900;
@@ -45,43 +39,14 @@
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
         }
+        .logo-icon { background: var(--secondary); color: white; padding: 5px 12px; border-radius: 10px; font-size: 1.6rem; -webkit-text-fill-color: white; }
 
-        .logo-icon {
-            background: var(--secondary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 10px;
-            font-size: 1.6rem;
-            -webkit-text-fill-color: white;
-        }
+        nav { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+        nav a { text-decoration: none; color: var(--text-muted); font-weight: 600; padding: 8px 16px; border-radius: 8px; transition: 0.3s; }
+        nav a:hover { color: var(--secondary); background-color: #f0f7ff; }
 
-        nav {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-            background-color: #f0f7ff;
-        }
-
-        /* --- Calculator Section --- */
         .calc-container {
             max-width: 600px;
             margin: 40px auto;
@@ -91,7 +56,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        .input-group { margin-bottom: 20px; }
+        .input-group { margin-bottom: 20px; text-align: right; }
         label { display: block; margin-bottom: 8px; font-weight: bold; }
         input {
             width: 100%;
@@ -114,7 +79,6 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-
         button:hover { background: #2980b9; }
 
         .result {
@@ -128,7 +92,24 @@
             border: 1px solid var(--secondary);
         }
 
-        /* --- Affiliate Banner --- */
+        /* SEO & Concept Box Styles */
+        .seo-section {
+            max-width: 600px;
+            margin: 40px auto;
+            line-height: 1.6;
+            text-align: right;
+        }
+        .concept-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-right: 5px solid var(--secondary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+        .concept-box h3 { color: var(--secondary); margin-top: 0; }
+        .concept-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 10px; }
+
         .affiliate-banner {
             background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             border: 2px dashed var(--secondary);
@@ -152,8 +133,6 @@
 
         .disclosure { font-size: 0.75rem; color: #999; margin-top: 15px; }
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
-        /* עיצוב תחתית העמוד */
         footer {
             background: white;
             padding: 40px 20px;
@@ -161,7 +140,6 @@
             margin-top: 60px;
             border-top: 1px solid #eee;
         }
-
         .footer-links {
             margin-top: 15px;
             display: flex;
@@ -169,20 +147,9 @@
             gap: 20px;
             font-size: 0.9rem;
         }
-
-        .footer-links a {
-            text-decoration: none;
-            color: #4a5568;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #3498db;
-        }
+        .footer-links a { text-decoration: none; color: #4a5568; font-weight: 600; transition: color 0.3s; }
+        .footer-links a:hover { color: #3498db; }
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7092090861249134"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -233,6 +200,18 @@
     <div id="result" class="result"></div>
 </div>
 
+<div class="seo-section">
+    <div class="concept-box">
+        <h3>מתכננים את העתיד? אל תשכחו את המשכנתא</h3>
+        <p>
+            כשמתכננים פרישה, לא מספיק לדעת כמה כסף צברתם, אלא גם אילו התחייבויות נשארו לכם. שימוש ב<strong><a href="mortgage.html">מחשבון משכנתא</a></strong> יאפשר לכם לבדוק האם תסיימו לשלם את חובות הדיור לפני גיל הפרישה. 
+        </p>
+        <p>
+            סיום המשכנתא בזמן הוא קריטי, שכן הוא מקטין משמעותית את ההוצאות החודשיות שלכם בדיוק כשאתם עוברים לחיות על בסיס הקצבה הפנסיונית. הבנת לוח הסילוקין תעזור לכם להחליט אם כדאי לבצע פירעון מוקדם או להמשיך להשקיע את הכסף הפנוי בשוק ההון.
+        </p>
+    </div>
+</div>
+
 <div class="affiliate-banner">
     <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
     <p>רוצים להתחיל להשקיע? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
@@ -241,7 +220,13 @@
 </div>
 
 <footer>
-    © 2026 כלכלי וקל | המידע באתר אינו מהווה ייעוץ פנסיוני מוסמך
+    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
+    <p style="font-size: 0.8rem; margin-top: 10px;">המידע באתר אינו מהווה ייעוץ פנסיוני מוסמך</p>
+    <div class="footer-links">
+        <a href="terms.html">תנאי שימוש</a>
+        <a href="privacy.html">מדיניות פרטיות</a>
+        <a href="about.html">אודות האתר</a>
+    </div>
 </footer>
 
 <script>
@@ -280,16 +265,5 @@
         resDiv.innerHTML = `בגיל הפרישה (${retirementAge}), יעמוד לרשותכם הון משוער של:<br><strong style="font-size: 1.6rem; color: var(--accent);">₪${Math.round(total).toLocaleString()}</strong>`;
     }
 </script>
-<footer>
-    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
-    <div class="footer-links">
-        <a href="terms.html">תנאי שימוש</a>
-        <a href="privacy.html">מדיניות פרטיות</a>
-        <a href="about.html">אודות האתר</a>
-    </div>
-</footer>
 </body>
 </html>
-
-
-
