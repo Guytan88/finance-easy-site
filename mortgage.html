@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מחשבון פרישה - כלכלי וקל</title>
+    <title>מחשבון משכנתא מדויק 2026 - כלכלי וקל</title>
     <style>
         :root {
             --primary: #2c3e50;
@@ -84,15 +84,14 @@
         .result {
             margin-top: 25px;
             padding: 20px;
-            background: #eef7ff;
+            background: #f0fff4;
             border-radius: 12px;
             text-align: center;
             font-size: 1.2rem;
             display: none;
-            border: 1px solid var(--secondary);
+            border: 1px solid var(--accent);
         }
 
-        /* SEO & Concept Box Styles */
         .seo-section {
             max-width: 600px;
             margin: 40px auto;
@@ -103,11 +102,11 @@
             background: white;
             padding: 25px;
             border-radius: 15px;
-            border-right: 5px solid var(--secondary);
+            border-right: 5px solid var(--accent);
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             margin-bottom: 20px;
         }
-        .concept-box h3 { color: var(--secondary); margin-top: 0; }
+        .concept-box h3 { color: var(--accent); margin-top: 0; }
         .concept-box p { color: var(--text-muted); font-size: 1rem; margin-bottom: 10px; }
 
         .affiliate-banner {
@@ -143,12 +142,10 @@
         .footer-links {
             margin-top: 15px;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 0.9rem;
+            justify-content: center; gap: 20px; font-size: 0.9rem;
         }
-        .footer-links a { text-decoration: none; color: #4a5568; font-weight: 600; transition: color 0.3s; }
-        .footer-links a:hover { color: #3498db; }
+        .footer-links a { text-decoration: none; color: #4a5568; font-weight: 600; }
+        .footer-links a:hover { color: var(--secondary); }
     </style>
 </head>
 <body>
@@ -156,7 +153,7 @@
 <header>
     <a href="index.html" class="logo-container">
         <div class="logo-text">
-            <span class="logo-icon">🏖️</span>
+            <span class="logo-icon">🏠</span>
             כלכלי וקל
         </div>
     </a>
@@ -168,60 +165,52 @@
 </header>
 
 <div class="calc-container">
-    <h2 style="text-align: center; margin-bottom: 30px;">מחשבון פרישה</h2>
+    <h2 style="text-align: center; margin-bottom: 30px;">מחשבון משכנתא</h2>
     
     <div class="input-group">
-        <label>גיל נוכחי</label>
-        <input type="number" id="currentAge" placeholder="למשל: 30">
+        <label>סכום ההלוואה (₪)</label>
+        <input type="number" id="loanAmount" placeholder="למשל: 1,000,000">
     </div>
     
     <div class="input-group">
-        <label>גיל פרישה מתוכנן</label>
-        <input type="number" id="retirementAge" placeholder="למשל: 67">
+        <label>תקופת ההלוואה (שנים)</label>
+        <input type="number" id="loanYears" placeholder="למשל: 25">
     </div>
 
     <div class="input-group">
-        <label>חיסכון נוכחי (₪)</label>
-        <input type="number" id="currentSavings" placeholder="סכום שכבר נצבר">
-    </div>
-
-    <div class="input-group">
-        <label>הפקדה חודשית לחיסכון (₪)</label>
-        <input type="number" id="monthlyDeposit" placeholder="כמה תפקידו בכל חודש">
-    </div>
-
-    <div class="input-group">
-        <label>תשואה שנתית צפויה (%)</label>
-        <input type="number" id="annualReturn" step="0.1" value="4">
+        <label>ריבית שנתית צפויה (%)</label>
+        <input type="number" id="annualInterest" step="0.1" value="4.5">
     </div>
     
-    <button onclick="calculateRetirement()">חשב הון בפרישה</button>
+    <button onclick="calculateMortgage()">חשב החזר חודשי</button>
     
     <div id="result" class="result"></div>
 </div>
 
 <div class="seo-section">
     <div class="concept-box">
-        <h3>מתכננים את העתיד? אל תשכחו את המשכנתא</h3>
+        <h3>איך המשכנתא משפיעה על החופש הכלכלי שלכם?</h3>
         <p>
-            כשמתכננים פרישה, לא מספיק לדעת כמה כסף צברתם, אלא גם אילו התחייבויות נשארו לכם. שימוש ב<strong><a href="mortgage.html">מחשבון משכנתא</a></strong> יאפשר לכם לבדוק האם תסיימו לשלם את חובות הדיור לפני גיל הפרישה. 
+            החזר המשכנתא הוא לא רק הוצאה חודשית, הוא חלק מרכזי בניהול תזרים המזומנים שלכם. כל שקל שאתם מצליחים לחסוך בריבית המשכנתא באמצעות תכנון נכון או מחזור הלוואה, הוא שקל שיכול לעבוד עבורכם במקום אחר.
         </p>
         <p>
-            סיום המשכנתא בזמן הוא קריטי, שכן הוא מקטין משמעותית את ההוצאות החודשיות שלכם בדיוק כשאתם עוברים לחיות על בסיס הקצבה הפנסיונית. הבנת לוח הסילוקין תעזור לכם להחליט אם כדאי לבצע פירעון מוקדם או להמשיך להשקיע את הכסף הפנוי בשוק ההון.
+            <strong>הסוד של עשירי העולם:</strong> המפתח לצבירת עושר הוא לא רק כמה אתם מרוויחים, אלא כמה מהנטו שלכם אתם מצליחים להשקיע. אם תצליחו להקטין את ההחזר החודשי ולתעל את ההפרש להשקעה בשוק ההון, תוכלו ליהנות מהכוח החזק ביותר ביקום הפיננסי.
+        </p>
+        <p>
+            רוצים לראות איך חיסכון קטן של 500 ש"ח בחודש הופך למאות אלפי שקלים לאורך זמן? עברו עכשיו ל<strong><a href="compound-interest.html">מחשבון ריבית דריבית</a></strong> וגלו את פוטנציאל הצמיחה של הכסף שלכם.
         </p>
     </div>
 </div>
 
 <div class="affiliate-banner">
     <h3>🎁 הטבה מיוחדת לגולשי "כלכלי וקל"</h3>
-    <p>רוצים להתחיל להשקיע? סידרנו לכם תנאים בלעדיים ודמי ניהול מופחתים בבית ההשקעות אקסלנס.</p>
+    <p>צריכים ליווי מקצועי למשכנתא או פתיחת תיק השקעות? סידרנו לכם תנאים בלעדיים באקסלנס.</p>
     <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="affiliate-btn" target="_blank">לחצו כאן לקבלת ההטבה</a>
-    <div class="disclosure">* גילוי נאות: לחיצה על הקישור והרשמה עשויה להניב עמלה לאתר. השירות באחריות אקסלנס.</div>
+    <div class="disclosure">* גילוי נאות: לחיצה על הקישור עשויה להניב עמלה לאתר. השירות באחריות הספק.</div>
 </div>
 
 <footer>
     <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
-    <p style="font-size: 0.8rem; margin-top: 10px;">המידע באתר אינו מהווה ייעוץ פנסיוני מוסמך</p>
     <div class="footer-links">
         <a href="terms.html">תנאי שימוש</a>
         <a href="privacy.html">מדיניות פרטיות</a>
@@ -230,39 +219,34 @@
 </footer>
 
 <script>
-    function calculateRetirement() {
-        const currentAge = parseInt(document.getElementById('currentAge').value);
-        const retirementAge = parseInt(document.getElementById('retirementAge').value);
-        const p = parseFloat(document.getElementById('currentSavings').value) || 0;
-        const m = parseFloat(document.getElementById('monthlyDeposit').value) || 0;
-        const annualRate = parseFloat(document.getElementById('annualReturn').value) / 100;
+    function calculateMortgage() {
+        const p = parseFloat(document.getElementById('loanAmount').value);
+        const years = parseInt(document.getElementById('loanYears').value);
+        const annualRate = parseFloat(document.getElementById('annualInterest').value) / 100;
         
-        const years = retirementAge - currentAge;
-        
-        if (years <= 0) {
-            alert("גיל הפרישה חייב להיות גבוה מהגיל הנוכחי");
+        if (!p || !years || !annualRate) {
+            alert("נא למלא את כל השדות בצורה תקינה");
             return;
         }
 
         const r = annualRate / 12; // ריבית חודשית
-        const n = years * 12; // מספר חודשים
+        const n = years * 12; // מספר תשלומים
 
-        // חיסכון קיים עם ריבית דה ריבית
-        const existingSavingsGrowth = p * Math.pow(1 + r, n);
-
-        // צמיחת ההפקדות החודשיות (סכום סדרה הנדסית)
-        let monthlyGrowth = 0;
-        if (r > 0) {
-            monthlyGrowth = m * ((Math.pow(1 + r, n) - 1) / r);
-        } else {
-            monthlyGrowth = m * n;
-        }
-
-        const total = existingSavingsGrowth + monthlyGrowth;
+        // נוסחת שפיצר להחזר חודשי
+        const monthlyPayment = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        const totalPayment = monthlyPayment * n;
+        const totalInterest = totalPayment - p;
 
         const resDiv = document.getElementById('result');
         resDiv.style.display = 'block';
-        resDiv.innerHTML = `בגיל הפרישה (${retirementAge}), יעמוד לרשותכם הון משוער של:<br><strong style="font-size: 1.6rem; color: var(--accent);">₪${Math.round(total).toLocaleString()}</strong>`;
+        resDiv.innerHTML = `
+            ההחזר החודשי המשוער שלכם:<br>
+            <strong style="font-size: 1.8rem; color: var(--accent);">₪${Math.round(monthlyPayment).toLocaleString()}</strong><br>
+            <small style="display:block; margin-top:10px; color: #666;">
+                סה"כ החזר בסוף תקופה: ₪${Math.round(totalPayment).toLocaleString()}<br>
+                מתוך זה, סך הריבית: ₪${Math.round(totalInterest).toLocaleString()}
+            </small>
+        `;
     }
 </script>
 </body>
