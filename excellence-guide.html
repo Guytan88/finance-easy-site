@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איך לפתוח חשבון באקסלנס טרייד | הטבה בלעדית - כלכלי וקל</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #27ae60;
+            --link-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .main-nav ul li a:hover {
+            color: var(--link-color);
+        }
+
+        /* --- CONTENT CONTAINER --- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: var(--primary-color); text-align: center; font-size: 2.2rem; }
+        h2 { color: var(--secondary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px; }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid var(--secondary-color);
+        }
+        .step-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #f2f2f2; }
+        .highlight { background-color: #e8f5e9; font-weight: bold; color: var(--accent-color); }
+
+        .cta-container { text-align: center; margin: 50px 0; }
+        .btn-upgrade {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn-upgrade:hover { background-color: #219150; }
+
+        /* --- FOOTER STYLE --- */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 20px;
+        }
+        .footer-section h3 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        .footer-section ul { list-style: none; padding: 0; }
+        .footer-section ul li { margin-bottom: 10px; }
+        .footer-section ul li a { color: #bdc3c7; text-decoration: none; transition: color 0.3s; }
+        .footer-section ul li a:hover { color: white; }
+        
+        .legal-block {
+            max-width: 1000px;
+            margin: 30px auto 0;
+            padding: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 0.75rem;
+            color: #95a5a6;
+            text-align: justify;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .main-nav ul { flex-wrap: wrap; justify-content: center; font-size: 0.85rem; }
+            .footer-container { grid-template-columns: 1fr; }
+            .container { padding: 20px; margin: 15px auto; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">🏢 כלכלי וקל</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="mortgage.html">משכנתא</a></li>
+                <li><a href="compound-interest.html">ריבית דריבית</a></li>
+                <li><a href="gross-to-net.html">ברוטו לנטו</a></li>
+                <li><a href="rent-vs-buy.html">קנייה מול שכירות</a></li>
+                <li><a href="excellence-guide.html" style="color: var(--link-color); font-weight: bold;">אקסלנס</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <h1>מדריך פתיחת חשבון באקסלנס טרייד</h1>
+    <p style="text-align: center;">הצטרפו לאלפי משקיעים עצמאיים שכבר חוסכים בעמלות הבנקים.</p>
+
+    <h2>🚀 שלבי ההצטרפות</h2>
+    <div class="step">
+        <div class="step-number">1</div>
+        <div><strong>לחיצה על קישור ההטבה:</strong> כדי להבטיח את מתנת ההצטרפות (100 ש"ח) והפטור לשנתיים, יש לעבור דרך הקישור הרשמי למטה.</div>
+    </div>
+    <div class="step">
+        <div class="step-number">2</div>
+        <div><strong>הזנת פרטים ואימות:</strong> ממלאים פרטים אישיים ומעלים צילום ת"ז וצילום צ'ק לאימות החשבון.</div>
+    </div>
+    <div class="step">
+        <div class="step-number">3</div>
+        <div><strong>חתימה ואישור:</strong> חותמים על הטפסים דיגיטלית. החשבון יאושר בדרך כלל תוך 24-48 שעות עסקים.</div>
+    </div>
+
+    <h2>💰 פירוט הטבות בלעדיות</h2>
+    <table>
+        <tr><th>השירות</th><th>תנאי ההטבה</th></tr>
+        <tr><td>בונוס מזומן</td><td class="highlight">100 ש"ח מתנה לחשבון</td></tr>
+        <tr><td>דמי ניהול (טיפול)</td><td class="highlight">שנתיים פטור מלא</td></tr>
+        <tr><td>עמלת קנייה/מכירה (ארץ)</td><td>0.07% (מינימום 3 ש"ח)</td></tr>
+        <tr><td>מניות ו-ETF בארה"ב</td><td>1 סנט למניה (מינימום $5)</td></tr>
+    </table>
+
+    <div class="cta-container">
+        <a href="https://xnestrade.xnes.co.il/page/101?customerCode=bb383121" class="btn-upgrade" target="_blank">לחצו כאן לפתיחת חשבון והפעלת ההטבה</a>
+    </div>
+
+    <hr id="privacy" style="margin: 50px 0; border: 0; border-top: 1px solid #eee;">
+    
+    <h2>🛡️ מדיניות פרטיות</h2>
+    <p style="font-size: 0.9rem; color: #666;">
+        אנחנו ב"כלכלי וקל" מחויבים לשמירה על פרטיות המשתמשים. האתר אינו שומר פרטים אישיים הרגישים שלכם. המידע שנאסף הוא טכני (Cookies) לצורך שיפור האתר והצגת פרסומות רלוונטיות. לחיצה על קישור ההטבה מעבירה אתכם לאתר אקסלנס, ושם חלה מדיניות הפרטיות של בית ההשקעות.
+    </p>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>כלים פופולריים</h3>
+            <ul>
+                <li><a href="mortgage.html">מחשבון משכנתא</a></li>
+                <li><a href="compound-interest.html">מחשבון ריבית דריבית</a></li>
+                <li><a href="gross-to-net.html">מחשבון ברוטו לנטו</a></li>
+                <li><a href="rent-vs-buy.html">קנייה מול שכירות</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>מידע נוסף</h3>
+            <ul>
+                <li><a href="excellence-guide.html">הטבת אקסלנס</a></li>
+                <li><a href="#privacy">מדיניות פרטיות</a></li>
+                <li><a href="contact.html">יצירת קשר</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>אודותינו</h3>
+            <p style="color: #bdc3c7; font-size: 0.9rem;">
+                כלכלי וקל הוקם כדי לספק כלים חינמיים ומדויקים לניהול פיננסי חכם, חיסכון בעמלות ותכנון עתיד כלכלי טוב יותר.
+            </p>
+        </div>
+    </div>
+
+    <div class="legal-block">
+        <strong>גילוי נאות:</strong> האתר "כלכלי וקל" עשוי לקבל עמלה בגין הצטרפות לשירותים פיננסיים דרך קישורים המופיעים בו. המידע מוצג כשירות לציבור בלבד ואינו מהווה ייעוץ השקעות מקצועי. השקעה בשוק ההון כרוכה בסיכון.
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 כלכלי וקל - פשוט, שקוף ונגיש.
+    </div>
+</footer>
+
+</body>
+</html>
