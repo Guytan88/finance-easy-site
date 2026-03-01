@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מרכז הידע - כלכלי וקל</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f4f7f6; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #27ae60; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); margin: 0; padding: 0; color: var(--primary); }
         header { background: white; padding: 30px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .container { max-width: 1000px; margin: 40px auto; padding: 20px; }
         .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .article-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
         .article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
         .tag { background: var(--secondary); color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; width: fit-content; margin-bottom: 10px; }
+        .tag.benefit { background: var(--accent); } /* תגית ירוקה להטבות */
+
         h2 { margin: 10px 0; font-size: 1.4rem; color: var(--primary); }
         p { color: #666; font-size: 0.95rem; flex-grow: 1; }
         .read-more { color: var(--secondary); font-weight: bold; margin-top: 15px; }
+        
         nav { margin-bottom: 15px; }
         nav a { text-decoration: none; color: var(--secondary); font-weight: bold; margin: 0 10px; }
-        /* עיצוב תחתית העמוד */
+        
         footer {
             background: white;
             padding: 40px 20px;
@@ -61,6 +65,13 @@
 
 <div class="container">
     <div class="article-grid">
+        <a href="excellence-guide.html" class="article-card" style="border: 2px solid var(--accent);">
+            <span class="tag benefit">הטבה בלעדית</span>
+            <h2>איך לפתוח חשבון באקסלנס טרייד?</h2>
+            <p>המדריך המלא למעבר למסחר עצמאי + 100 ש"ח מתנה ופטור מדמי ניהול לשנתיים לגולשי האתר.</p>
+            <span class="read-more" style="color: var(--accent);">לקבלת ההטבה והמדריך ←</span>
+        </a>
+
         <a href="mortgage-tips.html" class="article-card">
             <span class="tag">משכנתא</span>
             <h2>5 טעויות נפוצות בלקיחת משכנתא</h2>
@@ -69,11 +80,12 @@
         </a>
 
        <a href="compound-article.html" class="article-card">
-    <span class="tag">חיסכון</span>
-    <h2>כוחה של ריבית דה ריבית</h2>
-    <p>איך סכומים קטנים הופכים להון משמעותי לאורך זמן? המדריך למתחילים.</p>
-    <span class="read-more">קראו עוד ←</span>
-</a>
+            <span class="tag">חיסכון</span>
+            <h2>כוחה של ריבית דה ריבית</h2>
+            <p>איך סכומים קטנים הופכים להון משמעותי לאורך זמן? המדריך למתחילים.</p>
+            <span class="read-more">קראו עוד ←</span>
+        </a>
+
         <div class="article-card" style="opacity: 0.7; cursor: default;">
             <span class="tag">ניהול תקציב</span>
             <h2>איך לבנות תקציב חודשי מנצח</h2>
