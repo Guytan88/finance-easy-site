@@ -1,0 +1,274 @@
+<div class="ibi-wrapper" style="direction: rtl; font-family: 'Assistant', sans-serif; max-width: 650px; margin: 40px auto; line-height: 1.6;">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;700;800&display=swap');
+
+        .ibi-special-header {
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            padding: 40px 30px 35px 30px;
+            border-radius: 25px 25px 0 0;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-bottom: 5px solid #27ae60;
+        }
+
+        .ibi-special-header .brand-name {
+            color: #3498db;
+            font-size: 1.4rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .ibi-special-header h2 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sub-disclosure {
+            display: block;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .expiry-badge {
+            display: inline-block;
+            margin-top: 15px;
+            background: #f1c40f;
+            color: #1a2a3a;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .ibi-benefits-section {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: 0 0 25px 25px;
+            border: 2px solid #e2e8f0;
+            border-top: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .ibi-benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: scale(1.02) translateX(-5px);
+            border-color: #3498db;
+            background: #ffffff;
+        }
+
+        .benefit-amount {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: #27ae60;
+            min-width: 110px;
+            text-align: center;
+        }
+
+        .benefit-divider {
+            width: 3px;
+            height: 50px;
+            background: #27ae60;
+            margin: 0 15px;
+            border-radius: 10px;
+            opacity: 0.3;
+        }
+
+        .benefit-info {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            flex: 1;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #1a2a3a;
+        }
+
+        .benefit-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .top-priority {
+            background: #f0fff4 !important;
+            border: 2px solid #27ae60 !important;
+        }
+
+        .ibi-footer-notes {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed #cbd5e0;
+        }
+
+        .note-box {
+            background: #ebf8ff;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border-right: 4px solid #3498db;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: right;
+        }
+
+        /* תיבת ההנחיות החדשה */
+        .instruction-box {
+            background: #fdf2f2;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #feb2b2;
+            margin-top: 15px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #c53030;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .cta-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .ibi-cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite;
+        }
+
+        .ibi-cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.5);
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(39, 174, 96, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+        }
+
+        .legal-disclaimer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-align: center;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 500px) {
+            .ibi-special-header h2 { font-size: 1.7rem; }
+            .benefit-amount { font-size: 1.6rem; min-width: 85px; }
+            .ibi-cta-button { width: 85%; padding: 15px 20px; font-size: 1.2rem; }
+        }
+    </style>
+
+    <div class="ibi-special-header">
+        <span class="brand-name">כלכלי וקל - השוואה בין בתי השקעות 🛡️</span>
+        <h2>הטבת IBI בלעדית למילואימניקים, חיילים ומשרתי כוחות הביטחון</h2>
+        <span class="sub-disclosure">זה סיקור המבצע ע"י כלכלי וקל ולא מטעם IBI</span>
+        <div class="expiry-badge">⏳ שימו לב: ההטבה בתוקף עד ה-31.03.2026 בלבד!</div>
+    </div>
+
+    <div class="ibi-benefits-section">
+        <div class="ibi-benefits-list">
+            
+            <div class="benefit-item top-priority">
+                <div class="benefit-amount">500 ₪</div>
+                <div class="benefit-divider"></div>
+                <div class="benefit-info">
+                    <span class="benefit-title">מענק הצטרפות כספי</span>
+                    <span class="benefit-desc">לחיילים,מילואימניקים ומשרתי כוחות הביטחון</span>
+                </div>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-amount">0 ₪</div>
+                <div class="benefit-divider"></div>
+                <div class="benefit-info">
+                    <span class="benefit-title">פטור מדמי ניהול</span>
+                    <span class="benefit-desc">למשך שנתיים (לאחר מכן 15 ש"ח בחודש)</span>
+                </div>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-amount">0.08%</div>
+                <div class="benefit-divider"></div>
+                <div class="benefit-info">
+                    <span class="benefit-title"> עמלת מסחר בישראל</span>
+                    <span class="benefit-desc">2.35 ש"ח מינימום </span>
+                </div>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-amount">1 Cent</div>
+                <div class="benefit-divider"></div>
+                <div class="benefit-info">
+                    <span class="benefit-title">מסחר בארה"ב</span>
+                    <span class="benefit-desc">עמלה למניה (מינימום 7.5$ לעסקה)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ibi-footer-notes">
+            <div class="note-box">
+                📍 רלוונטי למשרתי מילואים ששירתו בחצי שנה האחרונה.
+            </div>
+            <div class="note-box" style="background: #fff5f5; border-right-color: #e53e3e;">
+                🎁 לא כוחות ביטחון? עדיין תקבלו 300 ₪ מענק הצטרפות!
+            </div>
+            
+            <div class="instruction-box">
+                📣 יש להירשם בקישור המצורף בלבד ונציג ייצור קשר להשלמת ההרשמה.
+            </div>
+        </div>
+
+        <div class="cta-button-container">
+            <a href="https://cloud.mc.ibi.co.il/rc?c=C00085311" class="ibi-cta-button" target="_blank">
+                לחצו כאן למימוש ההטבה והרשמה 🚀
+            </a>
+        </div>
+
+        <div class="legal-disclaimer">
+            אין לראות בפרסום זה ייעוץ השקעות. המפרסם אינו מטעם בית ההשקעות. ההטבה באחריות ובהתאם לתקנון בית ההשקעות IBI. המפרסם מתוגמל על ידי IBI בגין צירוף לקוחות חדשים.
+        </div>
+    </div>
+</div>
