@@ -13,6 +13,7 @@
             --accent-green: #27ae60;
             --sky-blue: #3498db;
             --bg-gray: #f4f7f6;
+            --warning-gold: #f1c40f;
         }
 
         * {
@@ -33,7 +34,7 @@
 
         .ibi-wrapper {
             width: 100%;
-            max-width: 500px; /* רוחב אופטימלי למובייל */
+            max-width: 500px; /* אופטימלי למובייל */
             background: white;
             min-height: 100vh;
             display: flex;
@@ -41,11 +42,11 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
-        /* כותרת עליונה - Mobile Friendly */
+        /* כותרת עליונה */
         .ibi-special-header {
             background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3e50 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 35px 20px;
             text-align: center;
             border-bottom: 5px solid var(--accent-green);
         }
@@ -61,7 +62,7 @@
 
         .ibi-special-header h2 {
             margin: 0;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 800;
             line-height: 1.3;
         }
@@ -71,20 +72,22 @@
             font-size: 0.75rem;
             color: #94a3b8;
             margin-top: 10px;
+            font-weight: 400;
         }
 
         .expiry-badge {
             display: inline-block;
             margin-top: 15px;
-            background: #f1c40f;
+            background: var(--warning-gold);
             color: var(--primary-dark);
-            padding: 6px 15px;
+            padding: 6px 18px;
             border-radius: 50px;
             font-weight: 800;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* תוכן ההטבות */
+        /* סקציית הטבות */
         .ibi-benefits-section {
             padding: 20px;
             flex-grow: 1;
@@ -103,6 +106,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 15px;
             padding: 15px;
+            transition: transform 0.2s ease;
         }
 
         .top-priority {
@@ -110,19 +114,30 @@
             border: 2px solid var(--accent-green);
         }
 
+        /* יישור הקווים החוצצים - רוחב קבוע למספרים */
         .benefit-amount {
             font-size: 1.6rem;
             font-weight: 900;
             color: var(--accent-green);
-            min-width: 80px;
+            width: 105px; /* רוחב קבוע ליישור מושלם */
+            min-width: 105px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* הקטנה למספר הפיקדון כדי שלא יצופף את התיבה */
+        .small-amount {
+            font-size: 1.3rem;
         }
 
         .benefit-divider {
             width: 2px;
             height: 35px;
             background: #e2e8f0;
-            margin: 0 12px;
+            margin: 0 10px;
+            flex-shrink: 0;
         }
 
         .benefit-info {
@@ -141,9 +156,10 @@
         .benefit-desc {
             font-size: 0.85rem;
             color: #64748b;
+            font-weight: 600;
         }
 
-        /* הערות והוראות */
+        /* הערות שוליים */
         .ibi-footer-notes {
             margin-top: 25px;
         }
@@ -156,6 +172,7 @@
             margin-bottom: 8px;
             font-size: 0.9rem;
             font-weight: 700;
+            color: #2d3748;
         }
 
         .instruction-box {
@@ -170,13 +187,14 @@
             text-align: center;
         }
 
-        /* כפתור הנעה לפעולה - Fixed Bottom Option */
+        /* אזור כפתור הנעה לפעולה */
         .cta-container {
             padding: 20px;
             background: white;
             position: sticky;
             bottom: 0;
             border-top: 1px solid #eee;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
         }
 
         .ibi-cta-button {
@@ -185,11 +203,16 @@
             color: white;
             padding: 18px;
             border-radius: 12px;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 800;
             text-decoration: none;
             text-align: center;
             box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .ibi-cta-button:active {
+            transform: scale(0.98);
         }
 
         .legal-disclaimer {
@@ -197,9 +220,16 @@
             color: #94a3b8;
             text-align: center;
             margin-top: 15px;
-            padding: 0 10px 20px 10px;
+            padding: 0 10px 15px 10px;
+            line-height: 1.4;
         }
 
+        /* התאמות למכשירים קטנים במיוחד */
+        @media (max-width: 380px) {
+            .benefit-amount { width: 85px; min-width: 85px; font-size: 1.3rem; }
+            .small-amount { font-size: 1.1rem; }
+            .ibi-special-header h2 { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
@@ -250,6 +280,15 @@
                     <span class="benefit-desc">מינימום 7.5$ לעסקה</span>
                 </div>
             </div>
+
+            <div class="benefit-item">
+                <div class="benefit-amount small-amount">15,000 ₪</div>
+                <div class="benefit-divider"></div>
+                <div class="benefit-info">
+                    <span class="benefit-title">הפקדה ראשונית מינימלית</span>
+                    <span class="benefit-desc">במזומן או ע"י העברת תיק ניירות ערך קיים</span>
+                </div>
+            </div>
         </div>
 
         <div class="ibi-footer-notes">
@@ -264,7 +303,7 @@
             להרשמה ומימוש ההטבה 🚀
         </a>
         <div class="legal-disclaimer">
-            אין לראות בפרסום זה ייעוץ השקעות. המפרסם אינו מטעם בית ההשקעות. ההטבה באחריות ובהתאם לתקנון IBI. המפרסם מתוגמל על ידי IBI בצירוף לקוחות חדשים.
+            אין לראות בפרסום זה ייעוץ השקעות. המפרסם אינו מטעם בית ההשקעות. ההטבה באחריות ובהתאם לתקנון IBI. המפרסם מתוגמל על ידי IBI בגין צירוף לקוחות חדשים.
         </div>
     </div>
 </div>
