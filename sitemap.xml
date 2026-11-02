@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.finance-easy.co.il/</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <priority>1.0</priority>
   </url>
 
@@ -62,7 +62,7 @@
 
   <url>
     <loc>https://www.finance-easy.co.il/articles.html</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <priority>0.7</priority>
   </url>
 
@@ -70,5 +70,136 @@
     <loc>https://www.finance-easy.co.il/benefits.html</loc>
     <lastmod>2026-03-11</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.finance-easy.co.il/vat.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/dmei-havraa.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/vacation-days.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/overtime.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/percentage.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/dmei-havraa-article.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/vacation-article.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/overtime-article.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/budget-article.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/buy-vs-rent.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/retirement.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/roi.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/payments.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/expenses.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/average.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/bmi.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/area.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/math-tools.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/math-quadratic.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/math-trig.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/mortgage-tips.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.finance-easy.co.il/compound-article.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
