@@ -30,12 +30,9 @@ input, select, textarea, button { font-family: inherit; }
 
 /* ---------- Header ---------- */
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    /* Not sticky on purpose: AdSense auto ads can inject units into the header, which would then stay pinned over the page. */
+    position: relative;
+    background: #fff;
     border-bottom: 1px solid var(--line);
     box-shadow: none;
     padding: 0;
@@ -278,7 +275,6 @@ input:focus, select:focus {
     .brand { justify-content: center; }
     .site-nav { flex-wrap: wrap; justify-content: center; gap: 2px; }
     .site-nav a { padding: 5px 9px; font-size: 0.9rem; }
-    .site-header { position: static; }
     .home-hero { padding: 40px 16px 28px; }
     .home-hero h1 { font-size: 1.85rem; }
     .home-main { padding: 0 16px; }
