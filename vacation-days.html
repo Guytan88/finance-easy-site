@@ -295,21 +295,24 @@
         }
 
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<header>
-    <a href="index.html" class="logo-container">
-        <div class="logo-text">
-            <span class="logo-icon">🏝️</span>
-            כלכלי וקל
-        </div>
-    </a>
-    <nav>
-        <a href="index.html">בית</a>
-        <a href="articles.html">מאמרים</a>
-        <a href="benefits.html">הטבות</a>
-    </nav>
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="index.html" class="brand"><span class="brand-mark">₪</span>כלכלי וקל</a>
+        <nav class="site-nav" aria-label="ניווט ראשי">
+            <a href="index.html#calcs">מחשבונים</a>
+            <a href="meter-reading.html">מחשבון חשמל</a>
+            <a href="articles.html">מדריכים</a>
+            <a href="benefits.html">הטבות</a>
+            <a href="about.html">אודות</a>
+        </nav>
+    </div>
 </header>
 
 <div class="calc-container">
@@ -385,13 +388,43 @@
 
 
 
-<footer>
-    <p>© 2026 כלכלי וקל | הופכים את הכסף שלכם ליותר</p>
-    <div class="footer-links">
-        <a href="terms.html">תנאי שימוש</a>
-        <a href="privacy.html">מדיניות פרטיות</a>
-        <a href="about.html">אודות האתר</a>
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="brand"><span class="brand-mark">₪</span>כלכלי וקל</a>
+            <p class="footer-about">מחשבונים ומדריכים פיננסיים בחינם - כדי שכל החלטה כלכלית תהיה פשוטה וברורה.</p>
+        </div>
+        <div>
+            <h4>מחשבונים פופולריים</h4>
+            <ul>
+                <li><a href="meter-reading.html">מחשבון חשמל</a></li>
+                <li><a href="gross-to-net.html">ברוטו לנטו 2026</a></li>
+                <li><a href="mortgage.html">מחשבון משכנתא</a></li>
+                <li><a href="vat.html">מחשבון מע"מ</a></li>
+                <li><a href="dmei-havraa.html">דמי הבראה 2026</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>זכויות ומדריכים</h4>
+            <ul>
+                <li><a href="severance.html">פיצויי פיטורים</a></li>
+                <li><a href="vacation-days.html">ימי חופשה</a></li>
+                <li><a href="overtime.html">שעות נוספות</a></li>
+                <li><a href="mas-rechisha.html">מס רכישה</a></li>
+                <li><a href="articles.html">כל המדריכים</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>האתר</h4>
+            <ul>
+                <li><a href="about.html">אודות</a></li>
+                <li><a href="benefits.html">הטבות לגולשים</a></li>
+                <li><a href="terms.html">תנאי שימוש</a></li>
+                <li><a href="privacy.html">מדיניות פרטיות</a></li>
+            </ul>
+        </div>
     </div>
+    <div class="footer-bottom">© 2026 כלכלי וקל | המידע באתר הוא כללי ואינו מהווה ייעוץ פיננסי, משפטי או מיסויי.</div>
 </footer>
 
 <script>
